@@ -1,2 +1,6 @@
 log/*.log
 erl_crash.dump
+
+# emacs autosave shit #
+\#*#
+*~
