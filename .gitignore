@@ -1,0 +1,2 @@
+log/*.log
+erl_crash.dump
