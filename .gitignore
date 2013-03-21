@@ -1,3 +1,5 @@
+ebin
+deps
 log/*.log
 erl_crash.dump
 
