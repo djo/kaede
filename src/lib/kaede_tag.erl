@@ -1,5 +1,5 @@
--module(tag_lib).
--export([create_tag/1]).
+-module(kaede_tag).
+-export([create/1, get/1, list/0]).
 -export([init_default/0]).
 
 %% tag_lib:init_default
@@ -11,14 +11,25 @@ init_default() ->
 		"бизнес", 
 		"любовь", 
 		"личное" ],
-    lists:map(fun create_tag/1, 
+    lists:map(fun create/1, 
 	      TagNames).
 
-create_tag(Text) ->
+create(Text) ->
     Tag = tag:new(id, utf8_decode(Text)),
     Tag:save().
+
+get(Id) ->
+    case boss_db:find(tag, [{id, 'equals', Id}]) of
+	[Tag] -> {ok, Tag};
+	_     -> {error, not_found}
+    end.
+
+list() ->
+    Tags = boss_db:find(tag, []),
+    {ok, Tags}.
 
 utf8_decode(Text) ->
     binary:bin_to_list(
       unicode:characters_to_binary(
 	Text)).
+

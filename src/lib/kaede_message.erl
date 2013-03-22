@@ -1,7 +1,10 @@
 -module(kaede_message).
--export([add/4, list/2]).
+-export([add/4, list/3]).
 
 -define(token_stops, " #@").
+-define(default_sort_order, {orderby, time_stamp}).
+-define(with_topic(TopicId), {topic_id, 'equals', TopicId}).
+-define(where_date(Op, Origin), {time_stamp, Op, Origin}).
 
 %% kaede_message:add/4
 %% добавляет новое сообщение в чат
@@ -16,14 +19,26 @@ add(chat, Text, TopicId, MemberId) ->
 		       Msg:save()
 	       end),
     case Result of
-	{atomic, Saved} -> Saved;
-	_ -> {error, Result}
+	{atomic, {ok, Saved}} -> 
+	    {ok, Saved};
+	_ -> 
+	    {error, Result}
     end.
 	     
-list(chat, all) ->
-    boss_db:find(chatmessage, []);
-list(chat, From) ->
-    boss_db:find(chatmessage, [{time_stamp, 'gt', From}]).
+list(chat, TopicId, all) ->
+    Messages = boss_db:find(
+		 chatmessage, 
+		 [?with_topic(TopicId)],
+		 [?default_sort_order]),
+    {ok, Messages};
+
+list(chat, TopicId, From) ->
+    Messages = boss_db:find(
+		 chatmessage, 
+		 [?where_date('gt', From), 
+		  ?with_topic(TopicId)],
+		 [?default_sort_order]),
+    {ok, Messages}.
 
 	     
 

@@ -1,16 +1,16 @@
 -module(kaede_tag_controller, [Req]).
--compile(export_all).
+-export([get/2, list/2]).
 
-id('GET', [Id]) ->
-    case boss_db:find(tag, [{id, 'equals', Id}]) of
-	[Tag] -> {json, [{tag, map_tag(Tag)}]};
-	_     -> not_found
+get('GET', [Id]) ->
+    case kaede_tag:get(Id) of
+	{ok, Tag} -> {json, [{tag, map_tag(Tag)}]};
+	_   -> not_found
     end.
 
 
 list('GET', []) ->
-    Tags = lists:map(fun map_tag/1,
-		     boss_db:find(tag, [])),
+    {ok, RawTags} = kaede_tag:list(),
+    Tags = lists:map(fun map_tag/1, RawTags),
     {json, [{tags, Tags}]}.
 
 
@@ -18,4 +18,4 @@ map_tag(Tag) ->
     Id = Tag:id(),
     Text = Tag:text(),
     [{id, Id},
-     {tag, Text}].
+     {text, Text}].
