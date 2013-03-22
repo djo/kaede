@@ -1,8 +1,10 @@
 .eunit
 ebin
 deps
+log
 log/*.log
 erl_crash.dump
+*.beam
 
 # emacs autosave shit #
 \#*#
