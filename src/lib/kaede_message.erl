@@ -1,5 +1,5 @@
 -module(kaede_message).
--export([add/4]).
+-export([add/4, list/2]).
 
 -define(token_stops, " #@").
 
@@ -8,13 +8,24 @@
 add(chat, Text, TopicId, MemberId) ->
     Parts = extract_parts(Text),
     _Tags = proplists:get_value(tags, Parts),
-    boss_db:transaction(
-      fun () ->
-	      Msg = chat_message:new(id, Text, TopicId, MemberId, now()),
-	      %% TODO: add links to tags, notify
-	      %% TODO: add links to users, notify
-	      Msg:save()
-      end).
+    Result = boss_db:transaction(
+	       fun () ->
+		       Msg = chatmessage:new(id, Text, TopicId, MemberId, now()),
+		       %% TODO: add links to tags, notify
+		       %% TODO: add links to users, notify
+		       Msg:save()
+	       end),
+    case Result of
+	{atomic, Saved} -> Saved;
+	_ -> {error, Result}
+    end.
+	     
+list(chat, all) ->
+    boss_db:find(chatmessage, []);
+list(chat, From) ->
+    boss_db:find(chatmessage, [{time_stamp, 'gt', From}]).
+
+	     
 
 %% извлекает из строки теги вида #тег @пользователь
 extract_parts(Text) ->

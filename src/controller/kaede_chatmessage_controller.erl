@@ -8,3 +8,5 @@ create('POST', []) ->
     ChatMessage = kaede_message:add(chat, Message, TopicId, MemberId),
     {json, [{message, ChatMessage}]}.
     
+list('GET', []) ->
+    
