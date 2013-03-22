@@ -1,0 +1,2 @@
+-module(member, [Id, Email, Name, PasswordHash]).
+-compile(export_all).

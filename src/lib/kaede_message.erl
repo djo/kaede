@@ -14,8 +14,7 @@ add(chat, Text, TopicId, MemberId) ->
 	      %% TODO: add links to tags, notify
 	      %% TODO: add links to users, notify
 	      Msg:save()
-      end),
-    none.
+      end).
 
 %% извлекает из строки теги вида #тег @пользователь
 extract_parts(Text) ->
