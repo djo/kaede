@@ -1,3 +1,4 @@
-## Kaede
+# Kaede
+[![Build Status](https://travis-ci.org/Djo/kaede.png)](https://travis-ci.org/Djo/kaede)
 
-See the [wiki](https://github.com/Djo/kaede/wiki) to start.
+See [wiki](https://github.com/Djo/kaede/wiki) how to start.
