@@ -1,5 +1,5 @@
 -module(kaede_main_controller, [Req]).
--compile(export_all).
+-export([hello/2]).
 
 before_(_) ->
     case member_lib:require_login(Req) of

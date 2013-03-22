@@ -1,5 +1,5 @@
 -module(member, [Id, Email, Name, PasswordHash]).
--compile(export_all).
+-export([validation_tests/0, check_password/1, login_cookies/0, session_id/0]).
 -define(SECRET_STRING, "Secret string").
 
 validation_tests() ->

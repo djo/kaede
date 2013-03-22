@@ -1,5 +1,5 @@
 -module(member_lib).
--compile([root_cookie/2,session_id/1,add_member/4, require_login/1, hash_for/2]).
+-export([root_cookie/2,session_id/1,add_member/4, require_login/1, hash_for/2]).
 -define(SECRET_STRING, "Secret string").
 
 

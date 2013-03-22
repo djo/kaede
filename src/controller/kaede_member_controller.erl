@@ -1,5 +1,5 @@
 -module(kaede_member_controller, [Req]).
--compile([register/2, logout/2, login/2]).
+-export([register/2, logout/2, login/2]).
 
 % Get register form
 
