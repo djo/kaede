@@ -1,17 +1,20 @@
 -module(kaede_main_controller, [Req]).
--export([topics_list/2]).
+-export([before_/3, hello/2, test_auth/0, topics_list/2]).
 
-before_(_) ->
+before_("test_auth",_,_) ->
     case member_lib:require_login(Req) of
-		fail-> {redirect, "/member/login"};
-		{ok, Member} -> {ok, Member}
-    end.
+		    fail -> {redirect, "/member/login"};
+		    {ok, Member} -> {ok, Member}
+    end;
+before_(_,_,_) ->
+  		{ok, []}.
 
 topics_list('GET', []) ->
 	Topics = boss_db:find(topic, []),
     {json, [{topics,Topics}]}.
 
-% Will list our topics or better give json with topics
-%list('GET', []) ->
-%    Greetings = boss_db:find(greeting, []),
-%    {ok, [{greetings, Greetings}]}.
+hello('GET', []) ->
+    {output, "<strong>Rahm says hello!</strong>"}.
+
+test_auth() ->
+   {ok,[]}.
