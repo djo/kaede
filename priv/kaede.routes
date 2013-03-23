@@ -16,6 +16,9 @@
 % Front page
 {"/", [{controller, "main"}, {action, "topics_list"}]}.
 
+% Topics
+{"/topic/new", [{controller, "main"}, {action, "topic_create"}]}.
+
 % 404 File Not Found handler
 % {404, [{controller, "world"}, {action, "lost"}]}.
 
