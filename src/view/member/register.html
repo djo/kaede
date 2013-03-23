@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% if errors %}
+{% for error in errors %}
+<p style="color: red;">{{ error }}</p>
+{% endfor %}
+{% endif %}
+
+<form class="form-signin" method="post">
+  <h2>Register</h2>
+  <input type="text" name="email" class="input-block-level" placeholder="Email address" value="{% if email %}{{ email }}{% endif %}">
+  <input type="text" name="name" class="input-block-level" placeholder="Displayed name" value="{% if name %}{{ name }}{% endif %}">
+  <input type="password" name="password1" class="input-block-level" placeholder="Password" value="{% if password1 %}{{ password1 }}{% endif %}">
+  <input type="password" name="password2" class="input-block-level" placeholder="Repeat password" value="{% if password2 %}{{ password2 }}{% endif %}">
+
+  <button type="submit" class="btn btn-large btn-primary">Register</button>
+  <input type="hidden" 
+	 name="redirect" 
+	 value='{{ redirect|default_if_none:"/greeting/live"}}'>
+</form>
+
+{% endblock %}
