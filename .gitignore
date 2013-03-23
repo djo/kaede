@@ -4,6 +4,7 @@ deps
 /log
 erl_crash.dump
 *.beam
+Mnesia.*
 
 # emacs autosave shit #
 \#*#
