@@ -1,0 +1,2 @@
+-module(topic,[Id,TopicText]).
+-compile(export_all).
