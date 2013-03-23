@@ -1,7 +1,7 @@
 -module(kaede_main_controller, [Req]).
--export([before_/3, topics_list/2]).
+-export([before_/3, main/2, topics_index/2,topic_create/2]).
 
-before_("test_auth",_,_) ->
+before_("topic_create",_,_) ->
     case member_lib:require_login(Req) of
             fail -> {redirect, "/member/login"};
             {ok, Member} -> {ok, Member}
@@ -9,17 +9,23 @@ before_("test_auth",_,_) ->
 before_(_,_,_) ->
         {ok, []}.
 
+% Main page
+
+main('GET', []) ->
+   {ok,[]}.
+
 % Listing topics here
 
-topics_list('GET', []) ->
+topics_index('GET', []) ->
     Topics = boss_db:find(topic, []),
-    {json, [{topics,Topics}]}.
+    {ok, [{topics,Topics}]}.
+
+% List individual topic
+topic_show('GET',[Id]) ->
+    Topic = boss_db:find(topic,[Id]),
+    {ok, [{topic, Topic}]}.
 
 % Creating topics
-
-% Show form
-topic_create('GET',  []) -> ok;
-
 % Recieve topic text from form and save it to db in topic table
 
 topic_create('POST', []) ->
@@ -33,8 +39,3 @@ topic_create('POST', []) ->
     end.
 
 
-hello('GET', []) ->
-    {output, "<strong>Rahm says hello!</strong>"}.
-
-test_auth() ->
-   {ok,[]}.

@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+
+{% block head %}{% endblock %}
+
+{% block content %}
+{% if error %}
+<p style="color: red;">{{ error }}</p>
+{% endif %}
+
+<div class="row">
+	<div class="span6">
+		<h2>Topics</h2>
+		<div ng-controller="TopicsCtrl">
+			
+		</div>
+	</div>
+</div>
+
+{% endblock %}
+

@@ -1,11 +1,14 @@
-<html>
+<!DOCTYPE html>
+<html ng-app>
   <head>
-    <title>Fresh Messages. {% block title %}{% endblock %}</title>
+    <title>Kaede main page{% block title %}{% endblock %}</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <link href="/static/style/bootstrap.min.css" rel="stylesheet" media="screen">
     <link href="/static/style/base.css" rel="stylesheet" media="screen">
     <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-    <script src="/static/script/bootstrap.min.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.5/angular.min.js"></script>
+     <script src="/static/js/app.js"></script>
     {% block scripts %}{% endblock %}
     {% block styles %}{% endblock %}
   </head>
