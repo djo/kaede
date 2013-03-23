@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}Log in{% endblock %}
+{% block head %}{% endblock %}
+
+{% block content %}
+{% if error %}
+<p style="color: red;">{{ error }}</p>
+{% endif %}
+
+<form class="form-signin" method="post">
+  <h2>Log in</h2>
+  <input type="text" name="email" class="input-block-level" placeholder="Email address">
+  <input type="password" name="password" class="input-block-level" placeholder="Password">
+
+  <button type="submit" class="btn btn-large btn-primary">Log in</button>
+  <a class="btn btn-large" href="/member/register">Register</a>
+</form>
+
+{% endblock %}
