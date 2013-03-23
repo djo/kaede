@@ -1,5 +1,5 @@
 -module(kaede_main_controller, [Req]).
--export([hello/2]).
+-compile(export_all).
 
 before_(_) ->
     case member_lib:require_login(Req) of
@@ -7,6 +7,7 @@ before_(_) ->
 		{ok, Member} -> {ok, Member}
     end.
 
+% Заглушка
 hello('GET', []) ->
     {output, "<strong>Rahm says hello!</strong>"}.
 

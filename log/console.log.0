@@ -1,0 +1,282 @@
+2013-03-22 14:47:09.293 [info] <0.6.0> Application lager started on node kaede@ubuntu
+2013-03-22 14:47:09.317 [info] <0.66.0> Starting Boss in development mode....
+
+2013-03-22 14:47:09.388 [info] <0.66.0> Starting master services on kaede@ubuntu
+
+2013-03-22 14:47:09.400 [info] <0.6.0> Application tinymq started on node kaede@ubuntu
+2013-03-22 14:47:09.448 [info] <0.66.0> SSL:[]
+
+2013-03-22 14:47:09.460 [info] <0.6.0> Application boss started on node kaede@ubuntu
+2013-03-22 14:47:09.464 [info] <0.6.0> Application kaede started on node kaede@ubuntu
+2013-03-22 14:47:09.476 [info] <0.151.0> Loading routes from "/home/bob/code/erlang/kaede/priv/kaede.routes" ....
+2013-03-22 14:47:19.420 [info] <0.151.0> Loading routes from "/home/bob/code/erlang/kaede/priv/kaede.routes" ....
+2013-03-22 14:47:19.421 [error] <0.133.0> GET / [kaede] 404 0ms
+2013-03-22 15:15:38.224 [info] <0.151.0> Loading routes from "/home/bob/code/erlang/kaede/priv/kaede.routes" ....
+2013-03-22 15:15:38.237 [error] <0.136.0> {undef,[{member_lib,require_login,[{simple_bridge_request_wrapper,mochiweb_request_bridge,{mochiweb_request,[#Port<0.18550>,'GET',"/",{1,1},{9,{"host",{'Host',"localhost:8001"},{"connection",{'Connection',"keep-alive"},{"cache-control",{'Cache-Control',"max-age=0"},{"accept",{'Accept',"text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"},nil,{"accept-encoding",{'Accept-Encoding',"gzip,deflate,sdch"},{"accept-charset",{'Accept-Charset',"ISO-8859-1,utf-8;q=0.7,*;q=0.3"},nil,nil},{"accept-language",{'Accept-Language',"en-US,en;q=0.8"},nil,nil}}},nil},{"cookie",{'Cookie',"_boss_session=d55b1ab7299992ddce1ec5226d70771ea899e396"},nil,nil}},{"user-agent",{'User-Agent',"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.22 (KHTML, like Gecko) Chrome/25.0.1364.172 Safari/537.22"},nil,nil}}}]},false,[],[],none}],[]},{kaede_main_controller,before_,2,[{file,"/home/bob/code/erlang/kaede/src/controller/kaede_main_controller.erl"},{line,5}]},{boss_web_controller,execute_action,5,[{file,"src/boss/boss_web_controller.erl"},{line,771}]},{boss_web_controller,process_dynamic_request,5,[{file,"src/boss/boss_web_controller.erl"},{line,530}]},{boss_web_controller,process_request,5,[{file,"src/boss/boss_web_controller.erl"},{line,519}]},{timer,tc,3,[{file,"timer.erl"},{line,194}]},{boss_web_controller,build_dynamic_response,4,[{file,"src/boss/boss_web_controller.erl"},{line,453}]},{mochiweb_http,headers,5,[{file,"src/mochiweb_http.erl"},{line,94}]}]}
+2013-03-22 15:15:39.395 [error] <0.136.0> GET / [kaede] 500 16ms
+2013-03-22 15:16:04.565 [info] <0.6.0> Application lager started on node kaede@ubuntu
+2013-03-22 15:16:04.580 [info] <0.66.0> Starting Boss in development mode....
+
+2013-03-22 15:16:04.629 [info] <0.66.0> Starting master services on kaede@ubuntu
+
+2013-03-22 15:16:04.640 [info] <0.6.0> Application tinymq started on node kaede@ubuntu
+2013-03-22 15:16:04.664 [info] <0.66.0> SSL:[]
+
+2013-03-22 15:16:04.682 [info] <0.6.0> Application boss started on node kaede@ubuntu
+2013-03-22 15:16:04.682 [info] <0.6.0> Application kaede started on node kaede@ubuntu
+2013-03-22 15:16:04.693 [info] <0.151.0> Loading routes from "/home/bob/code/erlang/kaede/priv/kaede.routes" ....
+2013-03-22 15:16:07.707 [info] <0.151.0> Loading routes from "/home/bob/code/erlang/kaede/priv/kaede.routes" ....
+2013-03-22 15:16:07.716 [error] <0.148.0> {undef,[{member_lib,require_login,[{simple_bridge_request_wrapper,mochiweb_request_bridge,{mochiweb_request,[#Port<0.17943>,'GET',"/",{1,1},{9,{"host",{'Host',"localhost:8001"},{"connection",{'Connection',"keep-alive"},{"cache-control",{'Cache-Control',"max-age=0"},{"accept",{'Accept',"text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"},nil,{"accept-encoding",{'Accept-Encoding',"gzip,deflate,sdch"},{"accept-charset",{'Accept-Charset',"ISO-8859-1,utf-8;q=0.7,*;q=0.3"},nil,nil},{"accept-language",{'Accept-Language',"en-US,en;q=0.8"},nil,nil}}},nil},{"cookie",{'Cookie',"_boss_session=d55b1ab7299992ddce1ec5226d70771ea899e396"},nil,nil}},{"user-agent",{'User-Agent',"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.22 (KHTML, like Gecko) Chrome/25.0.1364.172 Safari/537.22"},nil,nil}}}]},false,[],[],none}],[]},{kaede_main_controller,before_,2,[{file,"/home/bob/code/erlang/kaede/src/controller/kaede_main_controller.erl"},{line,5}]},{boss_web_controller,execute_action,5,[{file,"src/boss/boss_web_controller.erl"},{line,771}]},{boss_web_controller,process_dynamic_request,5,[{file,"src/boss/boss_web_controller.erl"},{line,530}]},{boss_web_controller,process_request,5,[{file,"src/boss/boss_web_controller.erl"},{line,519}]},{timer,tc,3,[{file,"timer.erl"},{line,194}]},{boss_web_controller,build_dynamic_response,4,[{file,"src/boss/boss_web_controller.erl"},{line,453}]},{mochiweb_http,headers,5,[{file,"src/mochiweb_http.erl"},{line,94}]}]}
+2013-03-22 15:16:08.357 [error] <0.148.0> GET / [kaede] 500 11ms
+2013-03-22 15:35:19.124 [info] <0.6.0> Application lager started on node kaede@ubuntu
+2013-03-22 15:35:19.139 [info] <0.66.0> Starting Boss in development mode....
+
+2013-03-22 15:35:19.187 [info] <0.66.0> Starting master services on kaede@ubuntu
+
+2013-03-22 15:35:19.198 [info] <0.6.0> Application tinymq started on node kaede@ubuntu
+2013-03-22 15:35:19.222 [info] <0.66.0> SSL:[]
+
+2013-03-22 15:35:19.234 [info] <0.6.0> Application boss started on node kaede@ubuntu
+2013-03-22 15:35:19.235 [info] <0.6.0> Application kaede started on node kaede@ubuntu
+2013-03-22 15:35:19.245 [info] <0.151.0> Loading routes from "/home/bob/code/erlang/kaede/priv/kaede.routes" ....
+2013-03-22 15:35:22.105 [info] <0.151.0> Loading routes from "/home/bob/code/erlang/kaede/priv/kaede.routes" ....
+2013-03-22 15:35:22.117 [error] <0.140.0> {undef,[{member_lib,require_login,[{simple_bridge_request_wrapper,mochiweb_request_bridge,{mochiweb_request,[#Port<0.18163>,'GET',"/",{1,1},{9,{"host",{'Host',"localhost:8001"},{"connection",{'Connection',"keep-alive"},{"cache-control",{'Cache-Control',"max-age=0"},{"accept",{'Accept',"text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"},nil,{"accept-encoding",{'Accept-Encoding',"gzip,deflate,sdch"},{"accept-charset",{'Accept-Charset',"ISO-8859-1,utf-8;q=0.7,*;q=0.3"},nil,nil},{"accept-language",{'Accept-Language',"en-US,en;q=0.8"},nil,nil}}},nil},{"cookie",{'Cookie',"_boss_session=1e71079e87e3750c946b2c3f4bdf1c99b1698349"},nil,nil}},{"user-agent",{'User-Agent',"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.22 (KHTML, like Gecko) Chrome/25.0.1364.172 Safari/537.22"},nil,nil}}}]},false,[],[],none}],[]},{kaede_main_controller,before_,2,[{file,"/home/bob/code/erlang/kaede/src/controller/kaede_main_controller.erl"},{line,5}]},{boss_web_controller,execute_action,5,[{file,"src/boss/boss_web_controller.erl"},{line,771}]},{boss_web_controller,process_dynamic_request,5,[{file,"src/boss/boss_web_controller.erl"},{line,530}]},{boss_web_controller,process_request,5,[{file,"src/boss/boss_web_controller.erl"},{line,519}]},{timer,tc,3,[{file,"timer.erl"},{line,194}]},{boss_web_controller,build_dynamic_response,4,[{file,"src/boss/boss_web_controller.erl"},{line,453}]},{mochiweb_http,headers,5,[{file,"src/mochiweb_http.erl"},{line,94}]}]}
+2013-03-22 15:35:22.628 [error] <0.140.0> GET / [kaede] 500 15ms
+2013-03-22 15:35:34.480 [info] <0.151.0> Loading routes from "/home/bob/code/erlang/kaede/priv/kaede.routes" ....
+2013-03-22 15:35:34.570 [info] <0.140.0> GET /member/login [kaede] 200 88ms
+2013-03-22 15:36:31.061 [info] <0.151.0> Loading routes from "/home/bob/code/erlang/kaede/priv/kaede.routes" ....
+2013-03-22 15:36:31.075 [error] <0.151.0> gen_server <0.151.0> terminated with reason: {'module could not be loaded',[{kaede_kaede_main_controller,module_info,[exports],[]},{boss_controller_lib,convert_params_to_tokens,3,[{file,"src/boss/boss_controller_lib.erl"},{line,5}]},{boss_router_controller,handle_call,3,[{file,"src/boss/boss_router_controller.erl"},{line,83}]},{gen_server,handle_msg,5,[{file,"gen_server.erl"},{line,588}]},{proc_lib,init_p_do_apply,3,[{file,"proc_lib.erl"},{line,227}]}]}
+2013-03-22 15:36:31.800 [error] <0.151.0> CRASH REPORT Process <0.151.0> with 0 neighbours exited with reason: call to undefined function kaede_kaede_main_controller:module_info(exports) in gen_server:terminate/6 line 747
+2013-03-22 15:36:32.339 [error] <0.150.0> Supervisor boss_router_sup had child router_controller started with boss_router_controller:start_link([{application,kaede},{controllers,["kaede_main_controller","kaede_member_controller"]}]) at <0.151.0> exit with reason call to undefined function kaede_kaede_main_controller:module_info(exports) in context child_terminated
+2013-03-22 15:36:32.767 [error] <0.137.0> CRASH REPORT Process <0.137.0> with 0 neighbours exited with reason: {{undef,[{kaede_kaede_main_controller,module_info,[exports],[]},{boss_controller_lib,convert_params_to_tokens,3,[{file,"src/boss/boss_controller_lib.erl"},{line,5}]},{boss_router_controller,handle_call,3,[{file,"src/boss/boss_router_controller.erl"},{line,83}]},{gen_server,handle_msg,5,[{file,"gen_server.erl"},{line,588}]},{proc_lib,init_p_do_apply,3,[{file,"proc_lib.erl"},{line,227}]}]},{gen_server,call,[<0.151.0>,{route,"/"}]}} in gen_server:call/2 line 180
+2013-03-22 15:36:33.189 [info] <0.169.0> Loading routes from "/home/bob/code/erlang/kaede/priv/kaede.routes" ....
+2013-03-22 15:36:33.190 [info] <0.169.0> Loading routes from "/home/bob/code/erlang/kaede/priv/kaede.routes" ....
+2013-03-22 15:36:33.191 [error] <0.169.0> gen_server <0.169.0> terminated with reason: {'module could not be loaded',[{kaede_kaede_main_controller,module_info,[exports],[]},{boss_controller_lib,convert_params_to_tokens,3,[{file,"src/boss/boss_controller_lib.erl"},{line,5}]},{boss_router_controller,handle_call,3,[{file,"src/boss/boss_router_controller.erl"},{line,83}]},{gen_server,handle_msg,5,[{file,"gen_server.erl"},{line,588}]},{proc_lib,init_p_do_apply,3,[{file,"proc_lib.erl"},{line,227}]}]}
+2013-03-22 15:36:33.600 [error] <0.169.0> CRASH REPORT Process <0.169.0> with 0 neighbours exited with reason: call to undefined function kaede_kaede_main_controller:module_info(exports) in gen_server:terminate/6 line 747
+2013-03-22 15:36:34.027 [error] <0.150.0> Supervisor boss_router_sup had child router_controller started with boss_router_controller:start_link([{application,kaede},{controllers,["kaede_main_controller","kaede_member_controller"]}]) at <0.169.0> exit with reason call to undefined function kaede_kaede_main_controller:module_info(exports) in context child_terminated
+2013-03-22 15:36:34.434 [error] <0.138.0> CRASH REPORT Process <0.138.0> with 0 neighbours exited with reason: {{undef,[{kaede_kaede_main_controller,module_info,[exports],[]},{boss_controller_lib,convert_params_to_tokens,3,[{file,"src/boss/boss_controller_lib.erl"},{line,5}]},{boss_router_controller,handle_call,3,[{file,"src/boss/boss_router_controller.erl"},{line,83}]},{gen_server,handle_msg,5,[{file,"gen_server.erl"},{line,588}]},{proc_lib,init_p_do_apply,3,[{file,"proc_lib.erl"},{line,227}]}]},{gen_server,call,[<0.169.0>,{route,"/"}]}} in gen_server:call/2 line 180
+2013-03-22 15:36:34.911 [info] <0.172.0> Loading routes from "/home/bob/code/erlang/kaede/priv/kaede.routes" ....
+2013-03-22 15:36:34.911 [info] <0.172.0> Loading routes from "/home/bob/code/erlang/kaede/priv/kaede.routes" ....
+2013-03-22 15:36:34.912 [error] <0.172.0> gen_server <0.172.0> terminated with reason: {'module could not be loaded',[{kaede_kaede_main_controller,module_info,[exports],[]},{boss_controller_lib,convert_params_to_tokens,3,[{file,"src/boss/boss_controller_lib.erl"},{line,5}]},{boss_router_controller,handle_call,3,[{file,"src/boss/boss_router_controller.erl"},{line,83}]},{gen_server,handle_msg,5,[{file,"gen_server.erl"},{line,588}]},{proc_lib,init_p_do_apply,3,[{file,"proc_lib.erl"},{line,227}]}]}
+2013-03-22 15:36:35.311 [error] <0.172.0> CRASH REPORT Process <0.172.0> with 0 neighbours exited with reason: call to undefined function kaede_kaede_main_controller:module_info(exports) in gen_server:terminate/6 line 747
+2013-03-22 15:36:35.723 [error] <0.150.0> Supervisor boss_router_sup had child router_controller started with boss_router_controller:start_link([{application,kaede},{controllers,["kaede_main_controller","kaede_member_controller"]}]) at <0.172.0> exit with reason call to undefined function kaede_kaede_main_controller:module_info(exports) in context child_terminated
+2013-03-22 15:36:36.145 [error] <0.140.0> CRASH REPORT Process <0.140.0> with 0 neighbours exited with reason: {{undef,[{kaede_kaede_main_controller,module_info,[exports],[]},{boss_controller_lib,convert_params_to_tokens,3,[{file,"src/boss/boss_controller_lib.erl"},{line,5}]},{boss_router_controller,handle_call,3,[{file,"src/boss/boss_router_controller.erl"},{line,83}]},{gen_server,handle_msg,5,[{file,"gen_server.erl"},{line,588}]},{proc_lib,init_p_do_apply,3,[{file,"proc_lib.erl"},{line,227}]}]},{gen_server,call,[<0.172.0>,{route,"/"}]}} in gen_server:call/2 line 180
+2013-03-22 15:36:36.645 [info] <0.175.0> Loading routes from "/home/bob/code/erlang/kaede/priv/kaede.routes" ....
+2013-03-22 15:36:36.645 [info] <0.175.0> Loading routes from "/home/bob/code/erlang/kaede/priv/kaede.routes" ....
+2013-03-22 15:36:36.645 [error] <0.175.0> gen_server <0.175.0> terminated with reason: {'module could not be loaded',[{kaede_kaede_main_controller,module_info,[exports],[]},{boss_controller_lib,convert_params_to_tokens,3,[{file,"src/boss/boss_controller_lib.erl"},{line,5}]},{boss_router_controller,handle_call,3,[{file,"src/boss/boss_router_controller.erl"},{line,83}]},{gen_server,handle_msg,5,[{file,"gen_server.erl"},{line,588}]},{proc_lib,init_p_do_apply,3,[{file,"proc_lib.erl"},{line,227}]}]}
+2013-03-22 15:36:37.161 [error] <0.175.0> CRASH REPORT Process <0.175.0> with 0 neighbours exited with reason: call to undefined function kaede_kaede_main_controller:module_info(exports) in gen_server:terminate/6 line 747
+2013-03-22 15:36:37.694 [error] <0.150.0> Supervisor boss_router_sup had child router_controller started with boss_router_controller:start_link([{application,kaede},{controllers,["kaede_main_controller","kaede_member_controller"]}]) at <0.175.0> exit with reason call to undefined function kaede_kaede_main_controller:module_info(exports) in context child_terminated
+2013-03-22 15:36:38.505 [error] <0.157.0> CRASH REPORT Process <0.157.0> with 0 neighbours exited with reason: {{undef,[{kaede_kaede_main_controller,module_info,[exports],[]},{boss_controller_lib,convert_params_to_tokens,3,[{file,"src/boss/boss_controller_lib.erl"},{line,5}]},{boss_router_controller,handle_call,3,[{file,"src/boss/boss_router_controller.erl"},{line,83}]},{gen_server,handle_msg,5,[{file,"gen_server.erl"},{line,588}]},{proc_lib,init_p_do_apply,3,[{file,"proc_lib.erl"},{line,227}]}]},{gen_server,call,[<0.175.0>,{route,"/"}]}} in gen_server:call/2 line 180
+2013-03-22 15:36:39.194 [info] <0.178.0> Loading routes from "/home/bob/code/erlang/kaede/priv/kaede.routes" ....
+2013-03-22 15:36:52.871 [info] <0.178.0> Loading routes from "/home/bob/code/erlang/kaede/priv/kaede.routes" ....
+2013-03-22 15:36:52.877 [error] <0.142.0> {undef,[{member_lib,require_login,[{simple_bridge_request_wrapper,mochiweb_request_bridge,{mochiweb_request,[#Port<0.19907>,'GET',"/",{1,1},{9,{"host",{'Host',"localhost:8001"},{"connection",{'Connection',"keep-alive"},{"cache-control",{'Cache-Control',"max-age=0"},{"accept",{'Accept',"text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"},nil,{"accept-encoding",{'Accept-Encoding',"gzip,deflate,sdch"},{"accept-charset",{'Accept-Charset',"ISO-8859-1,utf-8;q=0.7,*;q=0.3"},nil,nil},{"accept-language",{'Accept-Language',"en-US,en;q=0.8"},nil,nil}}},nil},{"cookie",{'Cookie',"_boss_session=3ea9e0969ee73c24543f1b1c17b139c36b2dd819"},nil,nil}},{"user-agent",{'User-Agent',"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.22 (KHTML, like Gecko) Chrome/25.0.1364.172 Safari/537.22"},nil,nil}}}]},false,[],[],none}],[]},{kaede_main_controller,before_,2,[{file,"/home/bob/code/erlang/kaede/src/controller/kaede_main_controller.erl"},{line,5}]},{boss_web_controller,execute_action,5,[{file,"src/boss/boss_web_controller.erl"},{line,771}]},{boss_web_controller,process_dynamic_request,5,[{file,"src/boss/boss_web_controller.erl"},{line,530}]},{boss_web_controller,process_request,5,[{file,"src/boss/boss_web_controller.erl"},{line,519}]},{timer,tc,3,[{file,"timer.erl"},{line,194}]},{boss_web_controller,build_dynamic_response,4,[{file,"src/boss/boss_web_controller.erl"},{line,453}]},{mochiweb_http,headers,5,[{file,"src/mochiweb_http.erl"},{line,94}]}]}
+2013-03-22 15:36:53.734 [error] <0.142.0> GET / [kaede] 500 15ms
+2013-03-22 15:47:50.688 [info] <0.6.0> Application lager started on node kaede@ubuntu
+2013-03-22 15:47:50.703 [info] <0.66.0> Starting Boss in development mode....
+
+2013-03-22 15:47:50.756 [info] <0.66.0> Starting master services on kaede@ubuntu
+
+2013-03-22 15:47:50.768 [info] <0.6.0> Application tinymq started on node kaede@ubuntu
+2013-03-22 15:47:50.792 [info] <0.66.0> SSL:[]
+
+2013-03-22 15:47:50.805 [info] <0.6.0> Application boss started on node kaede@ubuntu
+2013-03-22 15:47:50.805 [info] <0.6.0> Application kaede started on node kaede@ubuntu
+2013-03-22 15:47:50.816 [info] <0.151.0> Loading routes from "/home/bob/code/erlang/kaede/priv/kaede.routes" ....
+2013-03-22 15:47:53.594 [info] <0.151.0> Loading routes from "/home/bob/code/erlang/kaede/priv/kaede.routes" ....
+2013-03-22 15:47:53.603 [info] <0.148.0> GET / [kaede] 200 8ms
+2013-03-22 15:51:37.405 [info] <0.151.0> Loading routes from "/home/bob/code/erlang/kaede/priv/kaede.routes" ....
+2013-03-22 15:51:37.432 [info] <0.148.0> GET /member/login [kaede] 200 26ms
+2013-03-22 15:54:39.070 [info] <0.151.0> Loading routes from "/home/bob/code/erlang/kaede/priv/kaede.routes" ....
+2013-03-22 15:54:39.092 [info] <0.148.0> GET / [kaede] 200 23ms
+2013-03-22 15:54:40.663 [info] <0.151.0> Loading routes from "/home/bob/code/erlang/kaede/priv/kaede.routes" ....
+2013-03-22 15:54:40.677 [info] <0.148.0> GET / [kaede] 200 13ms
+2013-03-22 15:56:02.177 [info] <0.151.0> Loading routes from "/home/bob/code/erlang/kaede/priv/kaede.routes" ....
+2013-03-22 15:56:02.192 [info] <0.148.0> GET / [kaede] 200 15ms
+2013-03-22 15:56:20.024 [info] <0.6.0> Application lager started on node kaede@ubuntu
+2013-03-22 15:56:20.041 [info] <0.66.0> Starting Boss in development mode....
+
+2013-03-22 15:56:20.090 [info] <0.66.0> Starting master services on kaede@ubuntu
+
+2013-03-22 15:56:20.102 [info] <0.6.0> Application tinymq started on node kaede@ubuntu
+2013-03-22 15:56:20.126 [info] <0.66.0> SSL:[]
+
+2013-03-22 15:56:20.141 [info] <0.6.0> Application boss started on node kaede@ubuntu
+2013-03-22 15:56:20.142 [info] <0.6.0> Application kaede started on node kaede@ubuntu
+2013-03-22 15:56:20.152 [info] <0.151.0> Loading routes from "/home/bob/code/erlang/kaede/priv/kaede.routes" ....
+2013-03-22 15:56:22.223 [info] <0.151.0> Loading routes from "/home/bob/code/erlang/kaede/priv/kaede.routes" ....
+2013-03-22 15:56:22.232 [info] <0.148.0> GET / [kaede] 200 8ms
+2013-03-22 15:58:57.687 [info] <0.151.0> Loading routes from "/home/bob/code/erlang/kaede/priv/kaede.routes" ....
+2013-03-22 15:58:57.703 [info] <0.148.0> GET / [kaede] 200 25ms
+2013-03-22 15:59:15.646 [info] <0.6.0> Application lager started on node kaede@ubuntu
+2013-03-22 15:59:15.662 [info] <0.66.0> Starting Boss in development mode....
+
+2013-03-22 15:59:15.708 [info] <0.66.0> Starting master services on kaede@ubuntu
+
+2013-03-22 15:59:15.721 [info] <0.6.0> Application tinymq started on node kaede@ubuntu
+2013-03-22 15:59:15.742 [info] <0.66.0> SSL:[]
+
+2013-03-22 15:59:15.757 [info] <0.6.0> Application boss started on node kaede@ubuntu
+2013-03-22 15:59:15.757 [info] <0.6.0> Application kaede started on node kaede@ubuntu
+2013-03-22 15:59:15.768 [info] <0.151.0> Loading routes from "/home/bob/code/erlang/kaede/priv/kaede.routes" ....
+2013-03-22 15:59:17.469 [info] <0.151.0> Loading routes from "/home/bob/code/erlang/kaede/priv/kaede.routes" ....
+2013-03-22 15:59:17.477 [info] <0.133.0> GET / [kaede] 200 7ms
+2013-03-22 16:01:53.259 [info] <0.151.0> Loading routes from "/home/bob/code/erlang/kaede/priv/kaede.routes" ....
+2013-03-22 16:01:53.265 [info] <0.133.0> GET / [kaede] 200 5ms
+2013-03-22 16:10:48.186 [info] <0.6.0> Application lager started on node kaede@ubuntu
+2013-03-22 16:10:48.201 [info] <0.66.0> Starting Boss in development mode....
+
+2013-03-22 16:10:48.251 [info] <0.66.0> Starting master services on kaede@ubuntu
+
+2013-03-22 16:10:48.263 [info] <0.6.0> Application tinymq started on node kaede@ubuntu
+2013-03-22 16:10:48.287 [info] <0.66.0> SSL:[]
+
+2013-03-22 16:10:48.300 [info] <0.6.0> Application boss started on node kaede@ubuntu
+2013-03-22 16:10:48.301 [info] <0.6.0> Application kaede started on node kaede@ubuntu
+2013-03-22 16:10:48.311 [info] <0.151.0> Loading routes from "/home/bob/code/erlang/kaede/priv/kaede.routes" ....
+2013-03-22 16:10:50.599 [info] <0.151.0> Loading routes from "/home/bob/code/erlang/kaede/priv/kaede.routes" ....
+2013-03-22 16:10:50.677 [info] <0.148.0> GET / [kaede] 200 77ms
+2013-03-22 16:24:08.514 [info] <0.6.0> Application lager started on node kaede@ubuntu
+2013-03-22 16:24:08.529 [info] <0.66.0> Starting Boss in development mode....
+
+2013-03-22 16:24:08.575 [info] <0.66.0> Starting master services on kaede@ubuntu
+
+2013-03-22 16:24:08.588 [info] <0.6.0> Application tinymq started on node kaede@ubuntu
+2013-03-22 16:24:08.610 [info] <0.66.0> SSL:[]
+
+2013-03-22 16:24:08.627 [info] <0.6.0> Application boss started on node kaede@ubuntu
+2013-03-22 16:24:08.628 [info] <0.6.0> Application kaede started on node kaede@ubuntu
+2013-03-22 16:24:08.638 [info] <0.151.0> Loading routes from "/home/bob/code/erlang/kaede/priv/kaede.routes" ....
+2013-03-22 16:24:08.764 [error] <0.66.0> gen_server boss_web terminated with reason: no match of right hand value {error,[{"/home/bob/code/erlang/kaede/src/model/topics.erl",[{{2,16},erl_parse,"bad attribute"}]}]} in boss_load:load_all_modules/3 line 30
+2013-03-22 16:24:09.199 [error] <0.66.0> CRASH REPORT Process boss_web with 0 neighbours exited with reason: no match of right hand value {error,[{"/home/bob/code/erlang/kaede/src/model/topics.erl",[{{2,16},erl_parse,"bad attribute"}]}]} in boss_load:load_all_modules/3 line 30 in gen_server:terminate/6 line 747
+2013-03-22 16:24:09.663 [error] <0.65.0> Supervisor boss_sup had child boss_web_controller started with boss_web_controller:start_link([{ip,"0.0.0.0"},{port,8001}]) at <0.66.0> exit with reason no match of right hand value {error,[{"/home/bob/code/erlang/kaede/src/model/topics.erl",[{{2,16},erl_parse,"bad attribute"}]}]} in boss_load:load_all_modules/3 line 30 in context child_terminated
+2013-03-22 16:24:10.110 [error] <0.131.0> gen_server boss_service_sup terminated with reason: no match of right hand value {error,[{"/home/bob/code/erlang/kaede/src/model/topics.erl",[{{2,16},erl_parse,"bad attribute"}]}]} in boss_load:load_all_modules/3 line 30
+2013-03-22 16:24:10.610 [error] <0.131.0> CRASH REPORT Process <0.131.0> with 0 neighbours exited with reason: no match of right hand value {error,[{"/home/bob/code/erlang/kaede/src/model/topics.erl",[{{2,16},erl_parse,"bad attribute"}]}]} in boss_load:load_all_modules/3 line 30 in gen_server:terminate/6 line 747
+2013-03-22 16:24:11.032 [error] <0.92.0> gen_server boss_session_mock_sup terminated with reason: no match of right hand value {error,[{"/home/bob/code/erlang/kaede/src/model/topics.erl",[{{2,16},erl_parse,"bad attribute"}]}]} in boss_load:load_all_modules/3 line 30
+2013-03-22 16:24:11.532 [error] <0.92.0> CRASH REPORT Process <0.92.0> with 0 neighbours exited with reason: no match of right hand value {error,[{"/home/bob/code/erlang/kaede/src/model/topics.erl",[{{2,16},erl_parse,"bad attribute"}]}]} in boss_load:load_all_modules/3 line 30 in gen_server:terminate/6 line 747
+2013-03-22 16:24:12.021 [error] <0.127.0> gen_server boss_mail_sup terminated with reason: no match of right hand value {error,[{"/home/bob/code/erlang/kaede/src/model/topics.erl",[{{2,16},erl_parse,"bad attribute"}]}]} in boss_load:load_all_modules/3 line 30
+2013-03-22 16:24:12.510 [error] <0.127.0> CRASH REPORT Process boss_mail_sup with 0 neighbours exited with reason: no match of right hand value {error,[{"/home/bob/code/erlang/kaede/src/model/topics.erl",[{{2,16},erl_parse,"bad attribute"}]}]} in boss_load:load_all_modules/3 line 30 in gen_server:terminate/6 line 747
+2013-03-22 16:24:12.999 [error] <0.150.0> gen_server <0.150.0> terminated with reason: no match of right hand value {error,[{"/home/bob/code/erlang/kaede/src/model/topics.erl",[{{2,16},erl_parse,"bad attribute"}]}]} in boss_load:load_all_modules/3 line 30
+2013-03-22 16:24:13.497 [error] <0.150.0> CRASH REPORT Process <0.150.0> with 0 neighbours exited with reason: no match of right hand value {error,[{"/home/bob/code/erlang/kaede/src/model/topics.erl",[{{2,16},erl_parse,"bad attribute"}]}]} in boss_load:load_all_modules/3 line 30 in gen_server:terminate/6 line 747
+2013-03-22 16:24:13.965 [error] <0.153.0> gen_server <0.153.0> terminated with reason: no match of right hand value {error,[{"/home/bob/code/erlang/kaede/src/model/topics.erl",[{{2,16},erl_parse,"bad attribute"}]}]} in boss_load:load_all_modules/3 line 30
+2013-03-22 16:24:14.421 [error] <0.153.0> CRASH REPORT Process <0.153.0> with 0 neighbours exited with reason: no match of right hand value {error,[{"/home/bob/code/erlang/kaede/src/model/topics.erl",[{{2,16},erl_parse,"bad attribute"}]}]} in boss_load:load_all_modules/3 line 30 in gen_server:terminate/6 line 747
+2013-03-22 16:24:14.943 [error] <0.117.0> gen_server boss_mq_sup terminated with reason: no match of right hand value {error,[{"/home/bob/code/erlang/kaede/src/model/topics.erl",[{{2,16},erl_parse,"bad attribute"}]}]} in boss_load:load_all_modules/3 line 30
+2013-03-22 16:24:15.376 [error] <0.117.0> CRASH REPORT Process <0.117.0> with 0 neighbours exited with reason: no match of right hand value {error,[{"/home/bob/code/erlang/kaede/src/model/topics.erl",[{{2,16},erl_parse,"bad attribute"}]}]} in boss_load:load_all_modules/3 line 30 in gen_server:terminate/6 line 747
+2013-03-22 16:24:15.854 [error] <0.94.0> gen_server boss_session_sup terminated with reason: no match of right hand value {error,[{"/home/bob/code/erlang/kaede/src/model/topics.erl",[{{2,16},erl_parse,"bad attribute"}]}]} in boss_load:load_all_modules/3 line 30
+2013-03-22 16:24:16.399 [error] <0.94.0> CRASH REPORT Process boss_session_sup with 0 neighbours exited with reason: no match of right hand value {error,[{"/home/bob/code/erlang/kaede/src/model/topics.erl",[{{2,16},erl_parse,"bad attribute"}]}]} in boss_load:load_all_modules/3 line 30 in gen_server:terminate/6 line 747
+2013-03-22 16:24:16.887 [error] <0.125.0> gen_server boss_news_sup terminated with reason: no match of right hand value {error,[{"/home/bob/code/erlang/kaede/src/model/topics.erl",[{{2,16},erl_parse,"bad attribute"}]}]} in boss_load:load_all_modules/3 line 30
+2013-03-22 16:24:17.388 [error] <0.125.0> CRASH REPORT Process <0.125.0> with 0 neighbours exited with reason: no match of right hand value {error,[{"/home/bob/code/erlang/kaede/src/model/topics.erl",[{{2,16},erl_parse,"bad attribute"}]}]} in boss_load:load_all_modules/3 line 30 in gen_server:terminate/6 line 747
+2013-03-22 16:24:17.865 [error] <0.84.0> gen_server boss_db_sup terminated with reason: no match of right hand value {error,[{"/home/bob/code/erlang/kaede/src/model/topics.erl",[{{2,16},erl_parse,"bad attribute"}]}]} in boss_load:load_all_modules/3 line 30
+2013-03-22 16:24:18.321 [error] <0.84.0> CRASH REPORT Process boss_db_sup with 0 neighbours exited with reason: no match of right hand value {error,[{"/home/bob/code/erlang/kaede/src/model/topics.erl",[{{2,16},erl_parse,"bad attribute"}]}]} in boss_load:load_all_modules/3 line 30 in gen_server:terminate/6 line 747
+2013-03-22 16:24:18.810 [error] <0.82.0> gen_server boss_db_mock_sup terminated with reason: no match of right hand value {error,[{"/home/bob/code/erlang/kaede/src/model/topics.erl",[{{2,16},erl_parse,"bad attribute"}]}]} in boss_load:load_all_modules/3 line 30
+2013-03-22 16:24:19.249 [error] <0.82.0> CRASH REPORT Process <0.82.0> with 0 neighbours exited with reason: no match of right hand value {error,[{"/home/bob/code/erlang/kaede/src/model/topics.erl",[{{2,16},erl_parse,"bad attribute"}]}]} in boss_load:load_all_modules/3 line 30 in gen_server:terminate/6 line 747
+2013-03-22 16:24:19.760 [error] <0.86.0> Supervisor poolboy_sup had child boss_db_controller started with boss_db_controller:start_link([{size,5},{max_overflow,10},{adapter,mock},{cache_enable,false},{shards,[]},{is_master_node,true},...]) at undefined exit with reason shutdown in context shutdown_error
+2013-03-22 16:24:20.249 [error] <0.96.0> Supervisor poolboy_sup had child boss_session_controller started with boss_session_controller:start_link([{size,20},{max_overflow,40},{adapter,boss_session_adapter_mock},{session_exp_time,525600},{session_key,...}]) at undefined exit with reason shutdown in context shutdown_error
+2013-03-22 16:24:20.710 [info] <0.156.0> Starting Boss in development mode....
+
+2013-03-22 16:24:20.710 [info] <0.156.0> Starting master services on kaede@ubuntu
+
+2013-03-22 16:24:20.711 [info] <0.156.0> SSL:[]
+
+2013-03-22 16:24:20.711 [info] <0.217.0> Loading routes from "/home/bob/code/erlang/kaede/priv/kaede.routes" ....
+2013-03-22 16:24:20.712 [error] <0.156.0> gen_server boss_web terminated with reason: no match of right hand value {error,[{"/home/bob/code/erlang/kaede/src/model/topics.erl",[{{2,16},erl_parse,"bad attribute"}]}]} in boss_load:load_all_modules/3 line 30
+2013-03-22 16:24:21.252 [error] <0.156.0> CRASH REPORT Process boss_web with 0 neighbours exited with reason: no match of right hand value {error,[{"/home/bob/code/erlang/kaede/src/model/topics.erl",[{{2,16},erl_parse,"bad attribute"}]}]} in boss_load:load_all_modules/3 line 30 in gen_server:terminate/6 line 747
+2013-03-22 16:24:21.721 [error] <0.65.0> Supervisor boss_sup had child boss_web_controller started with boss_web_controller:start_link([{ip,"0.0.0.0"},{port,8001}]) at <0.156.0> exit with reason no match of right hand value {error,[{"/home/bob/code/erlang/kaede/src/model/topics.erl",[{{2,16},erl_parse,"bad attribute"}]}]} in boss_load:load_all_modules/3 line 30 in context child_terminated
+2013-03-22 16:24:22.210 [error] <0.198.0> gen_server boss_service_sup terminated with reason: no match of right hand value {error,[{"/home/bob/code/erlang/kaede/src/model/topics.erl",[{{2,16},erl_parse,"bad attribute"}]}]} in boss_load:load_all_modules/3 line 30
+2013-03-22 16:24:22.665 [error] <0.198.0> CRASH REPORT Process <0.198.0> with 0 neighbours exited with reason: no match of right hand value {error,[{"/home/bob/code/erlang/kaede/src/model/topics.erl",[{{2,16},erl_parse,"bad attribute"}]}]} in boss_load:load_all_modules/3 line 30 in gen_server:terminate/6 line 747
+2013-03-22 16:24:23.138 [error] <0.159.0> gen_server boss_db_sup terminated with reason: no match of right hand value {error,[{"/home/bob/code/erlang/kaede/src/model/topics.erl",[{{2,16},erl_parse,"bad attribute"}]}]} in boss_load:load_all_modules/3 line 30
+2013-03-22 16:24:23.610 [error] <0.159.0> CRASH REPORT Process boss_db_sup with 0 neighbours exited with reason: no match of right hand value {error,[{"/home/bob/code/erlang/kaede/src/model/topics.erl",[{{2,16},erl_parse,"bad attribute"}]}]} in boss_load:load_all_modules/3 line 30 in gen_server:terminate/6 line 747
+2013-03-22 16:24:24.065 [error] <0.157.0> gen_server boss_db_mock_sup terminated with reason: no match of right hand value {error,[{"/home/bob/code/erlang/kaede/src/model/topics.erl",[{{2,16},erl_parse,"bad attribute"}]}]} in boss_load:load_all_modules/3 line 30
+2013-03-22 16:24:24.549 [error] <0.157.0> CRASH REPORT Process <0.157.0> with 0 neighbours exited with reason: no match of right hand value {error,[{"/home/bob/code/erlang/kaede/src/model/topics.erl",[{{2,16},erl_parse,"bad attribute"}]}]} in boss_load:load_all_modules/3 line 30 in gen_server:terminate/6 line 747
+2013-03-22 16:24:25.016 [error] <0.169.0> gen_server boss_session_sup terminated with reason: no match of right hand value {error,[{"/home/bob/code/erlang/kaede/src/model/topics.erl",[{{2,16},erl_parse,"bad attribute"}]}]} in boss_load:load_all_modules/3 line 30
+2013-03-22 16:24:25.505 [error] <0.169.0> CRASH REPORT Process boss_session_sup with 0 neighbours exited with reason: no match of right hand value {error,[{"/home/bob/code/erlang/kaede/src/model/topics.erl",[{{2,16},erl_parse,"bad attribute"}]}]} in boss_load:load_all_modules/3 line 30 in gen_server:terminate/6 line 747
+2013-03-22 16:24:25.960 [error] <0.194.0> gen_server boss_news_sup terminated with reason: no match of right hand value {error,[{"/home/bob/code/erlang/kaede/src/model/topics.erl",[{{2,16},erl_parse,"bad attribute"}]}]} in boss_load:load_all_modules/3 line 30
+2013-03-22 16:24:26.432 [error] <0.194.0> CRASH REPORT Process <0.194.0> with 0 neighbours exited with reason: no match of right hand value {error,[{"/home/bob/code/erlang/kaede/src/model/topics.erl",[{{2,16},erl_parse,"bad attribute"}]}]} in boss_load:load_all_modules/3 line 30 in gen_server:terminate/6 line 747
+2013-03-22 16:24:26.905 [error] <0.192.0> gen_server boss_mq_sup terminated with reason: no match of right hand value {error,[{"/home/bob/code/erlang/kaede/src/model/topics.erl",[{{2,16},erl_parse,"bad attribute"}]}]} in boss_load:load_all_modules/3 line 30
+2013-03-22 16:24:27.432 [error] <0.192.0> CRASH REPORT Process <0.192.0> with 0 neighbours exited with reason: no match of right hand value {error,[{"/home/bob/code/erlang/kaede/src/model/topics.erl",[{{2,16},erl_parse,"bad attribute"}]}]} in boss_load:load_all_modules/3 line 30 in gen_server:terminate/6 line 747
+2013-03-22 16:24:27.943 [error] <0.167.0> gen_server boss_session_mock_sup terminated with reason: no match of right hand value {error,[{"/home/bob/code/erlang/kaede/src/model/topics.erl",[{{2,16},erl_parse,"bad attribute"}]}]} in boss_load:load_all_modules/3 line 30
+2013-03-22 16:24:28.416 [error] <0.167.0> CRASH REPORT Process <0.167.0> with 0 neighbours exited with reason: no match of right hand value {error,[{"/home/bob/code/erlang/kaede/src/model/topics.erl",[{{2,16},erl_parse,"bad attribute"}]}]} in boss_load:load_all_modules/3 line 30 in gen_server:terminate/6 line 747
+2013-03-22 16:24:29.054 [error] <0.219.0> gen_server <0.219.0> terminated with reason: no match of right hand value {error,[{"/home/bob/code/erlang/kaede/src/model/topics.erl",[{{2,16},erl_parse,"bad attribute"}]}]} in boss_load:load_all_modules/3 line 30
+2013-03-22 16:24:29.721 [error] <0.219.0> CRASH REPORT Process <0.219.0> with 0 neighbours exited with reason: no match of right hand value {error,[{"/home/bob/code/erlang/kaede/src/model/topics.erl",[{{2,16},erl_parse,"bad attribute"}]}]} in boss_load:load_all_modules/3 line 30 in gen_server:terminate/6 line 747
+2013-03-22 16:24:30.527 [error] <0.216.0> gen_server <0.216.0> terminated with reason: no match of right hand value {error,[{"/home/bob/code/erlang/kaede/src/model/topics.erl",[{{2,16},erl_parse,"bad attribute"}]}]} in boss_load:load_all_modules/3 line 30
+2013-03-22 16:24:31.387 [error] <0.216.0> CRASH REPORT Process <0.216.0> with 0 neighbours exited with reason: no match of right hand value {error,[{"/home/bob/code/erlang/kaede/src/model/topics.erl",[{{2,16},erl_parse,"bad attribute"}]}]} in boss_load:load_all_modules/3 line 30 in gen_server:terminate/6 line 747
+2013-03-22 16:24:32.027 [error] <0.196.0> gen_server boss_mail_sup terminated with reason: no match of right hand value {error,[{"/home/bob/code/erlang/kaede/src/model/topics.erl",[{{2,16},erl_parse,"bad attribute"}]}]} in boss_load:load_all_modules/3 line 30
+2013-03-22 16:24:32.532 [error] <0.196.0> CRASH REPORT Process boss_mail_sup with 0 neighbours exited with reason: no match of right hand value {error,[{"/home/bob/code/erlang/kaede/src/model/topics.erl",[{{2,16},erl_parse,"bad attribute"}]}]} in boss_load:load_all_modules/3 line 30 in gen_server:terminate/6 line 747
+2013-03-22 16:24:32.976 [error] <0.161.0> Supervisor poolboy_sup had child boss_db_controller started with boss_db_controller:start_link([{size,5},{max_overflow,10},{adapter,mock},{cache_enable,false},{shards,[]},{is_master_node,true},...]) at undefined exit with reason shutdown in context shutdown_error
+2013-03-22 16:24:33.432 [error] <0.171.0> Supervisor poolboy_sup had child boss_session_controller started with boss_session_controller:start_link([{size,20},{max_overflow,40},{adapter,boss_session_adapter_mock},{session_exp_time,525600},{session_key,...}]) at undefined exit with reason shutdown in context shutdown_error
+2013-03-22 16:29:10.028 [info] <0.6.0> Application lager started on node kaede@ubuntu
+2013-03-22 16:29:10.045 [info] <0.66.0> Starting Boss in development mode....
+
+2013-03-22 16:29:10.095 [info] <0.66.0> Starting master services on kaede@ubuntu
+
+2013-03-22 16:29:10.107 [info] <0.6.0> Application tinymq started on node kaede@ubuntu
+2013-03-22 16:29:10.134 [info] <0.66.0> SSL:[]
+
+2013-03-22 16:29:10.148 [info] <0.6.0> Application boss started on node kaede@ubuntu
+2013-03-22 16:29:10.148 [info] <0.6.0> Application kaede started on node kaede@ubuntu
+2013-03-22 16:29:10.160 [info] <0.151.0> Loading routes from "/home/bob/code/erlang/kaede/priv/kaede.routes" ....
+2013-03-22 16:30:07.603 [info] <0.151.0> Loading routes from "/home/bob/code/erlang/kaede/priv/kaede.routes" ....
+2013-03-22 16:30:07.635 [error] <0.146.0> GET / [kaede] 404 31ms
+2013-03-22 16:31:14.734 [info] <0.151.0> Loading routes from "/home/bob/code/erlang/kaede/priv/kaede.routes" ....
+2013-03-22 16:31:14.749 [info] <0.146.0> GET / [kaede] 200 14ms
+2013-03-22 17:01:56.619 [info] <0.160.0> GET /doc/topic [kaede] 200 2269ms
+2013-03-22 17:01:56.706 [error] <0.160.0> GET /doc/stylesheet.css [kaede] 404 0ms
+2013-03-22 17:01:57.344 [error] <0.138.0> GET /doc/erlang.png [kaede] 404 0ms
+2013-03-22 21:51:21.435 [info] <0.6.0> Application lager started on node kaede@ubuntu
+2013-03-22 21:51:21.452 [info] <0.66.0> Starting Boss in development mode....
+
+2013-03-22 21:51:21.502 [info] <0.66.0> Starting master services on kaede@ubuntu
+
+2013-03-22 21:51:21.514 [info] <0.6.0> Application tinymq started on node kaede@ubuntu
+2013-03-22 21:51:21.539 [info] <0.66.0> SSL:[]
+
+2013-03-22 21:51:21.589 [info] <0.6.0> Application boss started on node kaede@ubuntu
+2013-03-22 21:51:21.589 [info] <0.6.0> Application kaede started on node kaede@ubuntu
+2013-03-22 21:51:21.601 [info] <0.151.0> Loading routes from "/home/bob/code/erlang/kaede/priv/kaede.routes" ....
+2013-03-22 21:51:36.286 [info] <0.151.0> Loading routes from "/home/bob/code/erlang/kaede/priv/kaede.routes" ....
+2013-03-22 21:51:36.884 [info] <0.144.0> GET / [kaede] 200 598ms
+2013-03-22 21:56:18.710 [info] <0.151.0> Loading routes from "/home/bob/code/erlang/kaede/priv/kaede.routes" ....
+2013-03-22 21:56:18.724 [info] <0.144.0> GET / [kaede] 200 13ms
+2013-03-22 22:05:20.852 [info] <0.151.0> Loading routes from "/home/bob/code/erlang/kaede/priv/kaede.routes" ....
+2013-03-22 22:05:20.968 [info] <0.164.0> GET / [kaede] 200 115ms
+2013-03-22 22:18:09.330 [info] <0.151.0> Loading routes from "/home/bob/code/erlang/kaede/priv/kaede.routes" ....
+2013-03-22 22:18:09.344 [info] <0.165.0> GET / [kaede] 200 13ms
+2013-03-22 22:18:11.028 [info] <0.151.0> Loading routes from "/home/bob/code/erlang/kaede/priv/kaede.routes" ....
+2013-03-22 22:18:11.051 [info] <0.165.0> GET / [kaede] 200 15ms
+2013-03-22 22:29:58.857 [info] <0.151.0> Loading routes from "/home/bob/code/erlang/kaede/priv/kaede.routes" ....
+2013-03-22 22:29:58.871 [info] <0.158.0> GET / [kaede] 200 13ms
+2013-03-22 22:29:59.912 [info] <0.151.0> Loading routes from "/home/bob/code/erlang/kaede/priv/kaede.routes" ....
+2013-03-22 22:29:59.927 [info] <0.158.0> GET / [kaede] 200 14ms
+2013-03-22 22:36:50.471 [info] <0.151.0> Loading routes from "/home/bob/code/erlang/kaede/priv/kaede.routes" ....
+2013-03-22 22:36:50.498 [info] <0.141.0> GET / [kaede] 200 26ms
+2013-03-22 22:36:51.581 [info] <0.151.0> Loading routes from "/home/bob/code/erlang/kaede/priv/kaede.routes" ....
+2013-03-22 22:36:51.611 [info] <0.141.0> GET / [kaede] 200 29ms
+2013-03-22 22:37:32.228 [info] <0.151.0> Loading routes from "/home/bob/code/erlang/kaede/priv/kaede.routes" ....
+2013-03-22 22:37:32.258 [info] <0.141.0> GET / [kaede] 200 29ms
+2013-03-22 22:39:16.709 [info] <0.151.0> Loading routes from "/home/bob/code/erlang/kaede/priv/kaede.routes" ....
+2013-03-22 22:39:16.737 [info] <0.141.0> GET / [kaede] 200 27ms
+2013-03-22 22:40:47.678 [info] <0.151.0> Loading routes from "/home/bob/code/erlang/kaede/priv/kaede.routes" ....
+2013-03-22 22:40:47.708 [info] <0.141.0> GET / [kaede] 302 29ms
+2013-03-22 22:40:47.715 [info] <0.151.0> Loading routes from "/home/bob/code/erlang/kaede/priv/kaede.routes" ....
+2013-03-22 22:40:47.770 [info] <0.141.0> GET /member/login [kaede] 200 53ms
+2013-03-22 22:42:17.833 [info] <0.151.0> Loading routes from "/home/bob/code/erlang/kaede/priv/kaede.routes" ....
+2013-03-22 22:42:17.853 [info] <0.171.0> GET / [kaede] 200 19ms
+2013-03-22 22:42:38.483 [info] <0.151.0> Loading routes from "/home/bob/code/erlang/kaede/priv/kaede.routes" ....
+2013-03-22 22:42:38.503 [info] <0.171.0> GET / [kaede] 200 20ms
+2013-03-22 22:43:29.623 [info] <0.151.0> Loading routes from "/home/bob/code/erlang/kaede/priv/kaede.routes" ....
+2013-03-22 22:43:29.656 [info] <0.171.0> GET / [kaede] 302 32ms
+2013-03-22 22:43:29.660 [info] <0.151.0> Loading routes from "/home/bob/code/erlang/kaede/priv/kaede.routes" ....
+2013-03-22 22:43:29.699 [info] <0.171.0> GET /member/login [kaede] 200 38ms
+2013-03-22 22:52:16.585 [info] <0.151.0> Loading routes from "/home/bob/code/erlang/kaede/priv/kaede.routes" ....
+2013-03-22 22:52:16.617 [info] <0.181.0> GET / [kaede] 302 31ms
+2013-03-22 22:52:16.624 [info] <0.151.0> Loading routes from "/home/bob/code/erlang/kaede/priv/kaede.routes" ....
+2013-03-22 22:52:16.662 [info] <0.181.0> GET /member/login [kaede] 200 37ms
+2013-03-22 22:52:23.347 [info] <0.151.0> Loading routes from "/home/bob/code/erlang/kaede/priv/kaede.routes" ....
+2013-03-22 22:52:23.379 [info] <0.181.0> GET / [kaede] 302 31ms
+2013-03-22 22:52:23.383 [info] <0.151.0> Loading routes from "/home/bob/code/erlang/kaede/priv/kaede.routes" ....
+2013-03-22 22:52:23.423 [info] <0.181.0> GET /member/login [kaede] 200 39ms
+2013-03-22 23:08:03.170 [info] <0.151.0> Loading routes from "/home/bob/code/erlang/kaede/priv/kaede.routes" ....
+2013-03-22 23:08:03.200 [info] <0.133.0> GET / [kaede] 302 29ms
+2013-03-22 23:08:03.203 [info] <0.151.0> Loading routes from "/home/bob/code/erlang/kaede/priv/kaede.routes" ....
+2013-03-22 23:08:03.243 [info] <0.133.0> GET /member/login [kaede] 200 39ms
+2013-03-22 23:45:19.860 [info] <0.151.0> Loading routes from "/home/bob/code/erlang/kaede/priv/kaede.routes" ....
+2013-03-22 23:45:20.096 [info] <0.202.0> GET /member/login [kaede] 200 235ms
