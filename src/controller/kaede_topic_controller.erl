@@ -1,28 +1,23 @@
 -module(kaede_topic_controller, [Req]).
--export([before_/3, index/2, show/2, create/2]).
+-export([before_/3, pull/3, create/3]).
 
-before_("create", _, _) ->
+before_(_, _, _) ->
     case member_lib:require_login(Req) of
         fail -> {redirect, "/member/login"};
         {ok, Member} -> {ok, Member}
-    end;
-before_(_, _, _) ->
-    {ok, []}.
+    end.
 
-index('GET', []) ->
-    Topics = boss_db:find(topic, []),
-    {ok, [{topics, Topics}]}.
+pull('GET', [Timestamp], Member) ->
+    {ok, NewTimestamp, Topics} = boss_mq:pull("new-topics",
+        list_to_integer(Timestamp)),
+    {json, [{timestamp, NewTimestamp}, {topics, Topics}]}.
 
-show('GET', [Id]) ->
-    Topic = boss_db:find(topic, [Id]),
-    {ok, [{topic, Topic}]}.
-
-create('POST', []) ->
+create('POST', [], Member) ->
     TopicText = Req:post_param("topic_text"),
-    NewTopic = topic:new(id, TopicText),
-    case NewTopic:save() of
-        {ok, SavedTopic} ->
-            {redirect, [{action, "index"}]};
-        {error, ErrorList} ->
-            {ok, [{errors, ErrorList}, {new_msg, NewTopic}]}
+    Topic = topic:new(id, TopicText),
+    case Topic:save() of
+        {ok, Saved} ->
+            {json, [{topic, Saved}]};
+        {error, Errors} ->
+            {json, [{errors, Errors}]}
     end.
