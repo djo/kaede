@@ -1,11 +1,23 @@
 -module(kaede_main_controller, [Req]).
--export([before_/3, main/2, topics_index/2,topic_create/2]).
+%-export([before_/3, main/2, topics_index/2,topic_create/2]).
+-compile(export_all).
+
+
+% Filters
+
+% Here we filter some actions. Login needed to run that actions
+% List of actions
+% - topic_create
+% If we fail to authenticate user then we redirect to member/login page
+%  ( Maybe just show him flash message )
+% Else we pass Member tuple? to the action
 
 before_("topic_create",_,_) ->
     case member_lib:require_login(Req) of
             fail -> {redirect, "/member/login"};
             {ok, Member} -> {ok, Member}
     end;
+% All other actions pass filter here.
 before_(_,_,_) ->
         {ok, []}.
 
@@ -14,16 +26,17 @@ before_(_,_,_) ->
 main('GET', []) ->
    {ok,[]}.
 
-% Listing topics here
+% Here we will give list of topics in json format.
+% Frontend needs to call this func to get the results and past them in template
 
 topics_index('GET', []) ->
     Topics = boss_db:find(topic, []),
-    {ok, [{topics,Topics}]}.
+    {json, [{topics,Topics}]}.
 
-% List individual topic
+% This will give info to angular about topic with some id
 topic_show('GET',[Id]) ->
     Topic = boss_db:find(topic,[Id]),
-    {ok, [{topic, Topic}]}.
+    {json, [{topic, Topic}]}.
 
 % Creating topics
 % Recieve topic text from form and save it to db in topic table
