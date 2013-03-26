@@ -1,0 +1,4 @@
+2013-03-26 15:56:42.663 [error] <0.197.0> Missing or invalid boss.routes file in "/home/bob/code/erlang/kaede/src/controller/priv/kaede.routes"
+{error,enoent}
+
+2013-03-26 15:56:43.203 [error] <0.254.0> POST / [kaede] 404 0ms

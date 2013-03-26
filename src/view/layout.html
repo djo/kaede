@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+  <title>Kaede main page{% block title %}{% endblock %}</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <link href="/static/style/bootstrap.min.css" rel="stylesheet" media="screen">
+  <link href="/static/style/base.css" rel="stylesheet" media="screen">
+  {% block styles %}{% endblock %}  
+</head>
+<body>
+  <div id="head" class="navbar navbar-inverse">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="brand" href="/">Kaede</a>
+        <ul class="nav">
+          <li><a href="#">About</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="pull-right">{% block head %}{% endblock %}</div>
+  </div>
+
+  <div class="content container">
+    {% block content %}{% endblock %}
+  </div>
+
+  <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+  <script src="/static/js/bootstrap.min.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js"></script>
+  {% block scripts %}{% endblock %}
+</body>
+</html>

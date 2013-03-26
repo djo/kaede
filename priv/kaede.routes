@@ -14,13 +14,7 @@
 % Note that routing across applications results in a 302 redirect.
 
 % Front page
-{"/", [{controller, "main"}, {action, "main"}]}.
-
-% Topics
-{"/topics/new", [{controller, "main"}, {action, "topic_create"}]}.
-
-% Topics list
-{"/topics", [{controller, "main"}, {action, "topics_index"}]}.
+{"/", [{controller, "dashboard"}, {action, "index"}]}.
 
 % 404 File Not Found handler
 % {404, [{controller, "world"}, {action, "lost"}]}.

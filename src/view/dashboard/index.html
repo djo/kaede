@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block head %}
+Hi, {{member.name}}
+{% endblock %}
+
+{% block content %}
+
+<div class="row">
+  <div class="span12">
+    <h2>Topics</h2>
+  </div>
+</div>
+
+<form method="post" class="form-inline new_topic">
+  <input type="text" placeholder="New topic" name="topic_text" class="topic_text">
+  <button type="submit" class="btn">Add</button>
+</form>
+
+<ul class="topics"></ul>
+
+<script type="text/html" id='topic'>
+  <li><%= topic_text %></li>
+</script>
+{% endblock %}
+
+{% block scripts %}
+  <script src="/static/js/app.js"></script>
+  <script>
+    $(function () {
+      new Topics('{{timestamp}}')
+    })
+  </script>
+{% endblock %}
