@@ -12,15 +12,21 @@ Hi, {{member.name}}
   </div>
 </div>
 
-<form method="post" class="form-inline new_topic">
+<form method="post" action="/topic/create" class="form-inline new_topic">
   <input type="text" placeholder="New topic" name="topic_text" class="topic_text">
   <button type="submit" class="btn">Add</button>
 </form>
 
-<ul class="topics"></ul>
+<div class="topics"></div>
 
 <script type="text/html" id='topic'>
-  <li><%= topic_text %></li>
+  <div class="topic" data-topic="<%= topic_id %>">
+    <h4>
+      <a href="#messages"><%= topic_text %></a>
+      <small><%= member_name %></small>
+    </h4>
+    <div class="messages"></div>
+  </div>
 </script>
 {% endblock %}
 
@@ -28,7 +34,7 @@ Hi, {{member.name}}
   <script src="/static/js/app.js"></script>
   <script>
     $(function () {
-      new Topics('{{timestamp}}')
+      new Topics()
     })
   </script>
 {% endblock %}
