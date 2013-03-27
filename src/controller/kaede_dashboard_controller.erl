@@ -8,5 +8,4 @@ before_(_, _, _) ->
     end.
 
 index('GET', [], Member) ->
-    Timestamp = boss_mq:now("new-topics"),
-    {ok, [{member, Member}, {timestamp, Timestamp}]}.
+    {ok, [{member, Member}]}.

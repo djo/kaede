@@ -6,11 +6,7 @@
 % return a list of WatchIDs that should be cancelled in the stop
 % function below (stop is executed if the script is ever reloaded).
 init() ->
-    {ok, WatchTopics} = boss_news:watch("topics",
-        fun(created, Topic) -> 
-            boss_mq:push("new-topics", {topic, Topic})
-        end),
-    {ok, [WatchTopics]}.
+    {ok, []}.
 
 stop(ListOfWatchIDs) ->
     lists:map(fun boss_news:cancel_watch/1, ListOfWatchIDs).

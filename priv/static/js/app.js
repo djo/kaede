@@ -1,4 +1,4 @@
-function Topics (startTimestamp) {
+function Topics () {
   var topicTemplate = _.template($("#topic").html()),
       topicList = $(".topics"),
       topicForm = $("form.new_topic"),
@@ -7,7 +7,7 @@ function Topics (startTimestamp) {
   self = {
     addTopics: function (topics) {
       _.each(topics, function (topic) {
-        topicList.append(topicTemplate(topic))
+        topicList.prepend(topicTemplate(topic))
       })
     },
 
@@ -15,11 +15,10 @@ function Topics (startTimestamp) {
       e.preventDefault()
 
       $.ajax({
-        url: "/topic/create",
+        url: e.target.action,
         type: 'POST',
         data: { topic_text: topicText.val() }
       }).success(function (data) {
-        console.log(data)
         topicText.val("")
       }).error(function (jqXHR) {
         alert("Errors: " + jqXHR.responseText)
@@ -28,17 +27,25 @@ function Topics (startTimestamp) {
 
     poll: function (timestamp) {
       setTimeout(function () {
-        $.get("/topic/pull/" + timestamp, function (data) {
-          console.log(data)
-          self.addTopics(data.topics)
-          self.poll(data.timestamp)
+        $.get("/topic/poll/" + timestamp)
+         .success(function (data) {
+           self.addTopics(data.topics)
+           self.poll(data.timestamp)
         })
       }, 1000)
     },
 
+    fetchStartTopics: function () {
+      $.get("/topic")
+       .success(function (data) {
+        self.addTopics(data.topics)
+        self.poll(data.timestamp)
+      })
+    },
+
     init: function () {
       topicForm.submit(self.createTopic)
-      self.poll(startTimestamp)
+      self.fetchStartTopics()
     }
   }
 
