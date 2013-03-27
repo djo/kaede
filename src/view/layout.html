@@ -12,10 +12,10 @@
     <div class="navbar-inner">
       <div class="container">
         <a class="brand" href="/">Kaede</a>
-        <ul class="nav">
-          <li><a href="#">About</a></li>
-          <li>{% block head %}{% endblock %}</li>
-          {% if member %}<li><a href="/logout">Logout</a></li>{% endif %}
+        <ul class="nav pull-right">
+          <li ><a href="#">About</a></li>
+          <li><a href="#">{% block head %}{% endblock %}</a></li>
+          <li>{% if member %}<li><a href="/logout">Logout</a></li>{% endif %}</li>
         </ul>
       </div>
     </div>
