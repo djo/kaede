@@ -1,20 +1,34 @@
 -module(kaede_chatmessage_controller, [Req]).
--compile(export_all).
+-export([before_/3, index/3, create/3, poll/3]).
 
-create('POST', []) ->
-    MemberId = Req:post_param("member_id"),
-    Message = Req:post_param("message"),
-    TopicId = Req:post_param("topic_id"),
-    ChatMessage = kaede_message:add(chat, Message, TopicId, MemberId),
-    {json, [{message, ChatMessage}]}.
-    
-list('GET', [TopicId]) ->
-    {ok, RawMessages} = kaede_message:list(chat, TopicId, all),
-    Messages = lists:map(fun map_message/1, RawMessages),
-    {json, [{messages, Messages}]}.
+before_(_, _, _) ->
+    case member_lib:require_login(Req) of
+        fail -> {redirect, "/member/login"};
+        {ok, Member} -> {ok, Member}
+    end.
 
-map_message(Message) ->
-    [{id, Message:id()},
-     {text, Message:text()},
-     {member_id, Message:member_id()}].
-			
+index('GET', [TopicId], Member) ->
+    Messages = boss_db:find(chatmessage, [{topic_id, 'equals', TopicId}]),
+    MQMessages = lists:map(fun(Message) -> chatmessage_mq:build(Message, Member) end, Messages),
+    ChannelName = chatmessage_mq:channel_name(TopicId),
+    Timestamp = boss_mq:now(ChannelName),
+    {json, [{messages, MQMessages}, {timestamp, Timestamp}]}.
+
+poll('GET', [TopicId, Timestamp], Member) ->
+    ChannelName = chatmessage_mq:channel_name(TopicId),
+    {ok, NewTimestamp, Messages} = boss_mq:pull(ChannelName,
+        list_to_integer(Timestamp)),
+    {json, [{timestamp, NewTimestamp}, {messages, Messages}]}.
+
+create('POST', [TopicId], Member) ->
+    Text = Req:post_param("text"),
+    Message = chatmessage:new(id, Text, TopicId, Member:id(), now()),
+    case Message:save() of
+        {ok, Saved} ->
+            MQMessage = chatmessage_mq:build(Saved, Member),
+            ChannelName = chatmessage_mq:channel_name(TopicId),
+            boss_mq:push(ChannelName, MQMessage),
+            {json, [{message, Saved}]};
+        {error, Errors} ->
+            {json, [{errors, Errors}]}
+    end.

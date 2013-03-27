@@ -20,13 +20,30 @@ Hi, {{member.name}}
 <div class="topics"></div>
 
 <script type="text/html" id='topic'>
-  <div class="topic" data-topic="<%= topic_id %>">
+  <div class="topic">
     <h4>
       <a href="#messages"><%= topic_text %></a>
       <small><%= member_name %></small>
     </h4>
-    <div class="messages"></div>
+
+    <div class="message_box hide" data-poll_url="/chatmessage/poll/<%= topic_id %>"
+        data-index_url="/chatmessage/index/<%= topic_id %>">
+      <form method="post" action="/chatmessage/create/<%= topic_id %>" class="form-inline new_message">
+        <input type="text" placeholder="New message" name="text" class="message_text">
+        <button type="submit" class="btn">Reply</button>
+      </form>
+
+      <ul class="messages">
+      </ul>
+    </div>
   </div>
+</script>
+
+<script type="text/html" id='message'>
+  <li>
+    <%= text %>
+    <small><%= member_name %></small>
+  </li>
 </script>
 {% endblock %}
 
@@ -35,6 +52,7 @@ Hi, {{member.name}}
   <script>
     $(function () {
       new Topics()
+      new Messages()
     })
   </script>
 {% endblock %}
