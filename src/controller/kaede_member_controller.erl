@@ -65,3 +65,8 @@ login_and_redirect(Member) ->
     RedirectTo = "/",
     {redirect, RedirectTo, Cookies}.
 
+user_info('GET',[])->
+   SessionId2 = member_lib:root_cookie("user_id"),
+   User = boss_db:find(member,[{id,SessionId2}]),
+   {json,[{user,User}]}.
+ 
