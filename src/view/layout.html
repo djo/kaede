@@ -14,10 +14,11 @@
         <a class="brand" href="/">Kaede</a>
         <ul class="nav">
           <li><a href="#">About</a></li>
+          <li>{% block head %}{% endblock %}</li>
+          {% if member %}<li><a href="/logout">Logout</a></li>{% endif %}
         </ul>
       </div>
     </div>
-    <div class="pull-right">{% block head %}{% endblock %}</div>
   </div>
 
   <div class="content container">

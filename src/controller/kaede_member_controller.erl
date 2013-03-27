@@ -1,4 +1,4 @@
--module(kaede_member_controller, [Req]).
+-module(kaede_member_controller, [Req,SessionID]).
 -export([register/2, logout/2, login/2]).
 
 % Get register form
@@ -29,15 +29,15 @@ register('POST', []) ->
     
 % Logout user = empty cookie and redirect to the main page
 
-logout('GET', [SessionId]) ->
-    case Req:cookie("session_id") of
-	SessionId -> 
-	    Cookies = [member_lib:root_cookie("user_id", ""),
-		           member_lib:root_cookie("session_id", "")],
-	    {redirect, "/", Cookies};
+logout('GET', []) ->
+ case Req:cookie("_boss_session") of
+    SessionID -> 
+        Cookies = [member_lib:root_cookie("user_id", ""),
+                   member_lib:root_cookie("session_id", "")],
+        {redirect, "/", Cookies};
 
-	_ -> {redirect, "/"}
-    end.	
+    _ -> {redirect, "/"}
+    end.
 
 % Get login form
 
@@ -65,8 +65,4 @@ login_and_redirect(Member) ->
     RedirectTo = "/",
     {redirect, RedirectTo, Cookies}.
 
-user_info('GET',[])->
-   SessionId2 = member_lib:root_cookie("user_id"),
-   User = boss_db:find(member,[{id,SessionId2}]),
-   {json,[{user,User}]}.
  

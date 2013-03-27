@@ -15,6 +15,7 @@
 
 % Front page
 {"/", [{controller, "dashboard"}, {action, "index"}]}.
+{"/logout", [{controller, "member"}, {action, "logout"}]}.
 
 % 404 File Not Found handler
 % {404, [{controller, "world"}, {action, "lost"}]}.
