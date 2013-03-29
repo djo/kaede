@@ -1,0 +1,4 @@
+-module(topic_tag, [Id, TopicId, TagId]).
+-compile(export_all).
+-belongs_to(topic).
+-belongs_to(tag).

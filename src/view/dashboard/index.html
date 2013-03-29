@@ -6,18 +6,23 @@ Hi, {{member.name}}
 
 {% block content %}
 
+<div class="tag-list" data-list_url="/tag/list"></div>
+
 <div class="row">
-  <div class="span12">
-    <h2>Topics</h2>
+  <h2>Topics</h2>
+  <div class="span5">
+    <form method="post" action="/topic/create" class="form-inline new_topic">
+      <div class="input-append">
+        <input type="text" placeholder="New topic" name="topic_text" class="topic_text">
+        <button type="submit" class="btn">Add</button>
+      </div>
+    </form>
+    <div class="topics"></div>
   </div>
+  <div class="span4 topic-messages"></div>
 </div>
 
-<form method="post" action="/topic/create" class="form-inline new_topic">
-  <input type="text" placeholder="New topic" name="topic_text" class="topic_text">
-  <button type="submit" class="btn">Add</button>
-</form>
 
-<div class="topics"></div>
 
 <script type="text/html" id='topic'>
   <div class="topic">
@@ -25,16 +30,25 @@ Hi, {{member.name}}
       <a href="#messages"><%= topic_text %></a>
       <small><%= member_name %></small>
     </h4>
+  </div>
+</script>
 
-    <div class="message_box hide" data-poll_url="/chatmessage/poll/<%= topic_id %>"
+<script type="text/html" id='topic-content'>
+  <div class="topic">
+    <h4>
+      <a href="#messages"><%= topic_text %></a>
+      <small><%= member_name %></small>
+    </h4>
+
+    <div class="message_box" data-poll_url="/chatmessage/poll/<%= topic_id %>"
         data-index_url="/chatmessage/index/<%= topic_id %>">
+      <ul class="messages"></ul>
       <form method="post" action="/chatmessage/create/<%= topic_id %>" class="form-inline new_message">
-        <input type="text" placeholder="New message" name="text" class="message_text">
-        <button type="submit" class="btn">Reply</button>
+        <div class="input-append">
+          <input type="text" placeholder="New message" name="text" class="message_text">
+          <button type="submit" class="btn">Reply</button>
+        </div>
       </form>
-
-      <ul class="messages">
-      </ul>
     </div>
   </div>
 </script>
@@ -45,14 +59,20 @@ Hi, {{member.name}}
     <small><%= member_name %></small>
   </li>
 </script>
+
+<script type="text/html" id='tag'>
+  <a href="/topic/index/tag/<%= id %>" class="label label-info"> #<%= text %> </span>
+</script>
+
 {% endblock %}
 
 {% block scripts %}
   <script src="/static/js/app.js"></script>
   <script>
     $(function () {
-      new Topics()
-      new Messages()
+      new Tags();
+      new Topics();
+      new Messages ();
     })
   </script>
 {% endblock %}

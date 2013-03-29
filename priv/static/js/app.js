@@ -7,7 +7,8 @@ function Topics () {
   self = {
     addTopics: function (topics) {
       _.each(topics, function (topic) {
-        topicList.prepend(topicTemplate(topic))
+        topicList.prepend(topicTemplate(topic));
+        $('.topic').first().data('topic', topic);
       })
     },
 
@@ -54,12 +55,12 @@ function Topics () {
 
 function Messages () {
   var messageTemplate = _.template($("#message").html()),
-
+      topicContentTemplate = _.template($("#topic-content").html()),
   self = {
     addMessages: function (messageBox, messages) {
       var list = $('.messages', messageBox)
       _.each(messages, function (message) {
-        list.prepend(messageTemplate(message))
+        list.append(messageTemplate(message))
       })
     },
 
@@ -94,17 +95,15 @@ function Messages () {
       e.preventDefault()
 
       var topic = $(this).parents('.topic'),
-          messageBox = $('.message_box', topic)
+          topicContent = $('.topic-messages');
 
-      //NOTE: it's a prototype,
-      //NOTE: at the moment message box can be openned (initialized) only once
-      if (messageBox.is(":visible")) return
-
-      //NOTE Temporary solution to have open only one chat
+      // NOTE: Temporary solution to have open only one chat
       // Close the other chats and clear
-      $('.message_box').hide()
-      $('.messages', messageBox).empty()
-
+      topicContent.empty();
+      topicContent.append(topicContentTemplate(topic.data('topic')));
+      var messageBox = $('.message_box', topicContent);
+      $('.new_message button', messageBox).click(self.createMessage);
+      
       // Fetch existing messages and run longpolling
       $.get(messageBox.data("index_url"))
        .success(function (data) {
@@ -116,10 +115,28 @@ function Messages () {
     },
 
     init: function () {
-      $('.topics').on("click", "form.new_message button", self.createMessage)
       $('.topics').on("click", "h4 a", self.initMessaging)
     }
   }
 
+  self.init()
+}
+
+function Tags () {
+  var tagTemplate = _.template($("#tag").html());
+  self = {
+    addTags: function (container, tags) {
+      _.each(tags, function (tag) {
+        container.append(tagTemplate(tag));
+      });
+    },
+
+    init: function () {
+      var container = $('.tag-list');
+      $.get(container.data("list_url"))
+       .done(function(data){ self.addTags(container, data.tags); });
+    }
+  };
+  
   self.init()
 }

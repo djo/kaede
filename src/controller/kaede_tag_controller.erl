@@ -13,7 +13,6 @@ list('GET', []) ->
     Tags = lists:map(fun map_tag/1, RawTags),
     {json, [{tags, Tags}]}.
 
-
 map_tag(Tag) ->
     Id = Tag:id(),
     Text = Tag:text(),

@@ -1,2 +1,3 @@
--module(topic, [Id, TopicText]).
+-module(topic, [Id, TopicText, MemberId]).
 -compile(export_all).
+-belongs_to(member).
