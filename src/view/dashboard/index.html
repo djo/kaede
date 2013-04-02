@@ -6,7 +6,7 @@ Hi, {{member.name}}
 
 {% block content %}
 
-<div class="tag-list" data-list_url="/tag/list"></div>
+<div class="tag-list" data-list_url="/tag"></div>
 
 <div class="row">
   <h2>Topics</h2>
@@ -21,8 +21,6 @@ Hi, {{member.name}}
   </div>
   <div class="span4 topic-messages"></div>
 </div>
-
-
 
 <script type="text/html" id='topic'>
   <div class="topic">
@@ -61,7 +59,9 @@ Hi, {{member.name}}
 </script>
 
 <script type="text/html" id='tag'>
-  <a href="/topic/index/tag/<%= id %>" class="label label-info"> #<%= text %> </span>
+  <a href="/topic/index/tag/<%= id %>" class="label label-info">
+    #<%= text %>
+  </span>
 </script>
 
 {% endblock %}
@@ -70,9 +70,9 @@ Hi, {{member.name}}
   <script src="/static/js/app.js"></script>
   <script>
     $(function () {
-      new Tags();
-      new Topics();
-      new Messages ();
+      new Tags()
+      new Topics()
+      new Messages()
     })
   </script>
 {% endblock %}

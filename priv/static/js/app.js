@@ -56,6 +56,7 @@ function Topics () {
 function Messages () {
   var messageTemplate = _.template($("#message").html()),
       topicContentTemplate = _.template($("#topic-content").html()),
+
   self = {
     addMessages: function (messageBox, messages) {
       var list = $('.messages', messageBox)
@@ -123,20 +124,23 @@ function Messages () {
 }
 
 function Tags () {
-  var tagTemplate = _.template($("#tag").html());
+  var tagTemplate = _.template($("#tag").html()),
+      tagList = $('.tag-list'),
+
   self = {
-    addTags: function (container, tags) {
+    addTags: function (tags) {
       _.each(tags, function (tag) {
-        container.append(tagTemplate(tag));
-      });
+        tagList.append(tagTemplate(tag))
+      })
     },
 
     init: function () {
-      var container = $('.tag-list');
-      $.get(container.data("list_url"))
-       .done(function(data){ self.addTags(container, data.tags); });
+      $.get(tagList.data("list_url"))
+       .success(function (data) {
+         self.addTags(data.tags)
+      })
     }
-  };
-  
+  }
+
   self.init()
 }

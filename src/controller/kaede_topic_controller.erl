@@ -9,7 +9,6 @@ before_(_, _, _) ->
 
 index('GET', [], Member) ->
     Topics = boss_db:find(topic, []),
-
     MQTopics = lists:map(fun(Topic) -> topic_mq:build(Topic, Member) end, Topics),
     Timestamp = boss_mq:now("new-topics"),
     {json, [{topics, MQTopics}, {timestamp, Timestamp}]};
@@ -20,7 +19,6 @@ index('GET', ["tag", TagId], Member) ->
     Topics = boss_db:find(topic, [{id, 'in', TopicIds}]),
     MQTopics = lists:map(fun(Topic) -> topic_mq:build(Topic, Member) end, Topics),
     {json, [{topics, MQTopics}]}.
-
 
 poll('GET', [Timestamp], Member) ->
     {ok, NewTimestamp, Topics} = boss_mq:pull("new-topics",
@@ -35,13 +33,9 @@ create('POST', [], Member) ->
         {ok, Saved} ->
             MQTopic = topic_mq:build(Saved, Member),
             boss_mq:push("new-topics", MQTopic),
-
             Tags = proplists:get_value(tags, kaede_tag:extract_parts(TopicText)),
             LinkResults = [kaede_tag:link(Saved:id(), Tag) || Tag <- Tags],
-
             {json, [{topic, Saved}]};
         {error, Errors} ->
             {json, [{errors, Errors}]}
     end.
-
-    

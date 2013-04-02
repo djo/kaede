@@ -1,20 +1,24 @@
 -module(kaede_tag_controller, [Req]).
--export([get/2, list/2]).
+-export([before_/3, index/3, show/3]).
 
-get('GET', [Id]) ->
-    case kaede_tag:get(Id) of
-	{ok, Tag} -> {json, [{tag, map_tag(Tag)}]};
-	_   -> not_found
+before_(_, _, _) ->
+    case member_lib:require_login(Req) of
+        fail -> {redirect, "/member/login"};
+        {ok, Member} -> {ok, Member}
     end.
 
-
-list('GET', []) ->
+index('GET', [], Member) ->
     {ok, RawTags} = kaede_tag:list(),
     Tags = lists:map(fun map_tag/1, RawTags),
     {json, [{tags, Tags}]}.
 
+show('GET', [Id], Member) ->
+    case kaede_tag:get(Id) of
+        {ok, Tag} -> {json, [{tag, map_tag(Tag)}]};
+        _  -> not_found
+    end.
+
 map_tag(Tag) ->
     Id = Tag:id(),
     Text = Tag:text(),
-    [{id, Id},
-     {text, Text}].
+    [{id, Id}, {text, Text}].
