@@ -31,8 +31,8 @@ function Topics () {
         $.get("/topic/poll/" + timestamp)
          .success(function (data) {
            self.addTopics(data.topics)
-           self.poll(data.timestamp)
-        })
+           self.poll(data.timestamp)})
+         .error(function(){ self.poll(timestamp); });
       }, 1000)
     },
 
