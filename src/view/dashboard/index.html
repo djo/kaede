@@ -6,10 +6,20 @@ Hi, {{member.name}}
 
 {% block content %}
 
-<div class="tag-list" data-list_url="/tag"></div>
+<div class="row">
+  <div class="span12">
+    <div class="tag-list" data-list_url="/tag">
+    </div>
+  </div>
+</div>
 
 <div class="row">
-  <h2>Topics</h2>
+  <div class="span12">
+    <h2>Topics</h2>
+  </div>
+</div>
+
+<div class="row">
   <div class="span5">
     <form method="post" action="/topic/create" class="form-inline new_topic">
       <div class="input-append">
@@ -17,8 +27,9 @@ Hi, {{member.name}}
         <button type="submit" class="btn">Add</button>
       </div>
     </form>
-    <div class="topics"></div>
+    <div class="topics" data-list_url="/topic"></div>
   </div>
+
   <div class="span4 topic-messages"></div>
 </div>
 
@@ -34,12 +45,12 @@ Hi, {{member.name}}
 <script type="text/html" id='topic-content'>
   <div class="topic">
     <h4>
-      <a href="#messages"><%= topic_text %></a>
+      <%= topic_text %>
       <small><%= member_name %></small>
     </h4>
 
     <div class="message_box" data-poll_url="/chatmessage/poll/<%= topic_id %>"
-        data-index_url="/chatmessage/index/<%= topic_id %>">
+        data-list_url="/chatmessage/index/<%= topic_id %>">
       <ul class="messages"></ul>
       <form method="post" action="/chatmessage/create/<%= topic_id %>" class="form-inline new_message">
         <div class="input-append">

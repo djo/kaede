@@ -21,32 +21,18 @@ function Topics () {
         data: { topic_text: topicText.val() }
       }).success(function (data) {
         topicText.val("")
+        self.addTopics([data.topic])
       }).error(function (jqXHR) {
         alert("Errors: " + jqXHR.responseText)
       })
     },
 
-    poll: function (timestamp) {
-      setTimeout(function () {
-        $.get("/topic/poll/" + timestamp)
-         .success(function (data) {
-           self.addTopics(data.topics)
-           self.poll(data.timestamp)})
-         .error(function(){ self.poll(timestamp); });
-      }, 1000)
-    },
-
-    fetchStartTopics: function () {
-      $.get("/topic")
-       .success(function (data) {
-        self.addTopics(data.topics)
-        self.poll(data.timestamp)
-      })
-    },
-
     init: function () {
       topicForm.submit(self.createTopic)
-      self.fetchStartTopics()
+      $.get(topicList.data('list_url'))
+       .success(function (data) {
+         self.addTopics(data.topics)
+      })
     }
   }
 
@@ -56,6 +42,7 @@ function Topics () {
 function Messages () {
   var messageTemplate = _.template($("#message").html()),
       topicContentTemplate = _.template($("#topic-content").html()),
+      topicMessages = $('.topic-messages'),
 
   self = {
     addMessages: function (messageBox, messages) {
@@ -92,31 +79,26 @@ function Messages () {
       }, 1000)
     },
 
-    initMessaging: function (e) {
+    showMessages: function (e) {
       e.preventDefault()
 
-      var topic = $(this).parents('.topic'),
-          topicContent = $('.topic-messages');
-
-      // NOTE: Temporary solution to have open only one chat
-      // Close the other chats and clear
-      topicContent.empty();
-      topicContent.append(topicContentTemplate(topic.data('topic')));
-      var messageBox = $('.message_box', topicContent);
-      $('.new_message button', messageBox).click(self.createMessage);
+      var topic = $(this).parents('.topic')
+      var topicContent = topicContentTemplate(topic.data('topic'))
+      topicMessages.html(topicContent)
       
-      // Fetch existing messages and run longpolling
-      $.get(messageBox.data("index_url"))
-       .success(function (data) {
-        self.addMessages(messageBox, data.messages)
-        self.poll(messageBox, data.timestamp)
-      })
+      var messageBox = $('.message_box', topicMessages)
+      var submitButton = $('.new_message button', messageBox)
+      submitButton.click(self.createMessage)
 
-      messageBox.show()
+      $.get(messageBox.data("list_url"))
+       .success(function (data) {
+         self.addMessages(messageBox, data.messages)
+         self.poll(messageBox, data.timestamp)
+      })
     },
 
     init: function () {
-      $('.topics').on("click", "h4 a", self.initMessaging)
+      $('.topics').on("click", "h4 a", self.showMessages)
     }
   }
 
