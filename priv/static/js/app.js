@@ -43,6 +43,7 @@ function Messages () {
   var messageTemplate = _.template($("#message").html()),
       topicContentTemplate = _.template($("#topic-content").html()),
       topicMessages = $('.topic-messages'),
+      activeRequest = undefined,
 
   self = {
     addMessages: function (messageBox, messages) {
@@ -82,18 +83,24 @@ function Messages () {
     showMessages: function (e) {
       e.preventDefault()
 
+      if (activeRequest != undefined)
+        activeRequest.abort()
+
       var topic = $(this).parents('.topic')
       var topicContent = topicContentTemplate(topic.data('topic'))
       topicMessages.html(topicContent)
-      
+
       var messageBox = $('.message_box', topicMessages)
       var submitButton = $('.new_message button', messageBox)
       submitButton.click(self.createMessage)
 
-      $.get(messageBox.data("list_url"))
-       .success(function (data) {
-         self.addMessages(messageBox, data.messages)
-         self.poll(messageBox, data.timestamp)
+      activeRequest = $.ajax({
+        type: "GET",
+        url: messageBox.data("list_url"),
+        success: function (data){
+          self.addMessages(messageBox, data.messages)
+          self.poll(messageBox, data.timestamp)
+        }
       })
     },
 
