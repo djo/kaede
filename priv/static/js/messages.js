@@ -1,8 +1,9 @@
+var activeRequest = undefined
+
 function Messages () {
   var messageTemplate = _.template($("#message").html()),
       topicContentTemplate = _.template($("#topic-content").html()),
-      topicMessages = $('.topic-messages'),
-      activeRequest = undefined,
+      topicMessages = $('.topic-messages')
 
   self = {
     addMessages: function (messageBox, messages) {
@@ -30,20 +31,33 @@ function Messages () {
     },
 
     poll: function (messageBox, timestamp) {
+      if (activeRequest != undefined)
+        activeRequest.abort()
+
       setTimeout(function () {
-        $.get(messageBox.data("poll_url") + "/" + timestamp)
-         .success(function (data) {
-           self.addMessages(messageBox, data.messages)
-           self.poll(messageBox, data.timestamp)
+        var url = messageBox.data("poll_url") + "/" + timestamp
+
+        activeRequest = $.ajax({
+          type: "GET",
+          url: url,
+          cache: false,
+          timeout: 20000,
+          success: function (data) {
+            self.addMessages(messageBox, data.messages)
+            self.poll(messageBox, data.timestamp)
+          },
+          error: function (xhr) {
+            if (xhr.statusText !== "abort") {
+              activeRequest = undefined
+              self.poll(messageBox, timestamp)
+            }
+          }
         })
       }, 1000)
     },
 
     showMessages: function (e) {
       e.preventDefault()
-
-      if (activeRequest != undefined)
-        activeRequest.abort()
 
       var topic = $(this).parents('.topic')
       var topicContent = topicContentTemplate(topic.data('topic'))
@@ -53,7 +67,7 @@ function Messages () {
       var submitButton = $('.new_message button', messageBox)
       submitButton.click(self.createMessage)
 
-      activeRequest = $.ajax({
+      $.ajax({
         type: "GET",
         url: messageBox.data("list_url"),
         success: function (data){
