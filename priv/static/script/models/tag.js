@@ -1,12 +1,12 @@
 define(['Backbone'
        ], function (Backbone)
        {
-	   var Topic = Backbone.Model.extend({
-	       url: "/topic",
+	   var Tag = Backbone.Model.extend({
+	       url: "/tag",
 	       parse: function (response) {
-		   return response.topic;
+		   return response.tag;
 	       }
 	   });
-	   return Topic;
+	   return Tag;
        });
 		

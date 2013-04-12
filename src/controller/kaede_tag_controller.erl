@@ -14,11 +14,13 @@ index('GET', [], Member) ->
 
 show('GET', [Id], Member) ->
     case kaede_tag:get(Id) of
-        {ok, Tag} -> {json, [{tag, map_tag(Tag)}]};
+        {ok, Tag} -> {json, map_tag(Tag)};
         _  -> not_found
     end.
 
 map_tag(Tag) ->
     Id = Tag:id(),
     Text = Tag:text(),
-    [{id, Id}, {text, Text}].
+    [{tag, 
+      [{id, Id}, 
+       {text, Text}]}].
