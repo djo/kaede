@@ -38,6 +38,8 @@ define([
             
 	    self.collection.each(function (topic, index) {
 		var topicListItemView = new TopicListItemView({ model: topic });
+                topicListItemView.on('chat:open', self.openChat, self);
+
 		var row = topicListItemView.render().$el;
 		container.prepend(row);
 	    }, self);
@@ -59,6 +61,12 @@ define([
         comparator: function(topic){
             return comment.get("topic_id");
         },
+
+        openChat: function(topicItemView) {
+            this.chats.add(topicItemView.model);
+            console.log(this.chats);
+            console.log(topicItemView);
+        }
         
     });
     return TopicListView;

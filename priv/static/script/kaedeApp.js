@@ -1,25 +1,40 @@
 define([
     'collections/topicList',
-    'views/topic/topicList',
     'collections/tagList',
-    'views/tag/tagList'
+    'collections/chatList',
+    'views/topic/topicList',
+    'views/tag/tagList',
+    'views/chat/chatList'
 ], function (
-    TopicListCollection, 
+    TopicCollection, 
+    TagCollection, 
+    ChatCollection, 
     TopicListView,
-    TagListCollection, 
-    TagListView) {
+    TagListView,
+    ChatListView) {
     var KaedeApp = {
 	initialize: function () {
 	    var self = this;
-            self.init_collection(
-                TopicListCollection, 
-                TopicListView, 
-                $('.topics'));
 
-            self.init_collection(
-                TagListCollection, 
+            var chats = self.init_collection(
+                ChatCollection, 
+                ChatListView, 
+                $('.chats'));
+
+            var topics = self.init_collection(
+                TopicCollection, 
+                TopicListView, 
+                $('.topics'),
+                { chats: chats.collection });
+
+            var tags = self.init_collection(
+                TagCollection, 
                 TagListView, 
                 $('.tags'));
+
+            topics.run();
+            tags.run();
+
 	    return self;
 	},
 
@@ -28,9 +43,10 @@ define([
             var params = {
                 el: target, 
 		collection: collection };
-            $.extend(params, opt);
+
             var view = new View(params);
-            view.run();
+            $.extend(view, opt);
+            return view;
         }
     };
 
