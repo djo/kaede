@@ -4,7 +4,8 @@
 % Builds the Topic structure which will be used in the message queue
 build(Message, Member) ->
     [{text, Message:text()},
-     {member_name, Member:name()}].
+     {member_name, Member:name()},
+     {topic_id, Message:topic_id()}].
 
 channel_name(TopicId) ->
     "new-messages" ++ TopicId.

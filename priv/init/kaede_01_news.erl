@@ -6,7 +6,15 @@
 % return a list of WatchIDs that should be cancelled in the stop
 % function below (stop is executed if the script is ever reloaded).
 init() ->
-    {ok, []}.
+    {ok, MsgWatchId} = boss_news:watch("chatmessages",
+        fun(created, Message) ->
+                TopicId = Message:topic_id(),
+                MemberId = Message:member_id(),
+                [Member] = boss_db:find(member, [id, 'equals', MemberId]),
+                R = chatmessage_mq:build(Message, Member),
+                boss_mq:push("topic." ++ TopicId, R)
+        end),
+    {ok, [MsgWatchId]}.
 
 stop(ListOfWatchIDs) ->
     lists:map(fun boss_news:cancel_watch/1, ListOfWatchIDs).

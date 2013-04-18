@@ -1,5 +1,5 @@
 -module(kaede_chatmessage_controller, [Req]).
--export([before_/3, index/3, create/3, poll/3]).
+-export([before_/3, index/3, create/3, poll/3, pull/3]).
 
 before_(_, _, _) ->
     case member_lib:require_login(Req) of
@@ -19,6 +19,13 @@ poll('GET', [TopicId, Timestamp], Member) ->
     {ok, NewTimestamp, Messages} = boss_mq:pull(ChannelName,
         list_to_integer(Timestamp)),
     {json, [{timestamp, NewTimestamp}, {messages, Messages}]}.
+
+pull('GET', [Timestamp|TopicIds], Member) ->
+    Ts = list_to_integer(Timestamp),
+    Channels = ["topic." ++ TopicId || TopicId <- TopicIds],
+    {ok, NewTs, Messages} = mq_listener:pull(Channels, Ts),
+    {json, [{timestamp, NewTs}, {messages, Messages}]}.
+
 
 create('POST', [TopicId], Member) ->
     Text = Req:post_param("text"),

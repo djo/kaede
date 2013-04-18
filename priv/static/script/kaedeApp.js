@@ -34,6 +34,7 @@ define([
 
             topics.run();
             tags.run();
+            chats.run();
 
 	    return self;
 	},

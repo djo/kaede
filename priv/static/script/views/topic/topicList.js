@@ -25,7 +25,7 @@ define([
                     self.collection.fetch();}, 
                 1000 * self.pollingInterval);
         },
-        
+       
 	render: function () {
 	    var self = this;
 	    self.$el.empty();
