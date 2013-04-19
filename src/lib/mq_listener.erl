@@ -5,11 +5,28 @@ pull(Channels, Since) ->
     Self = self(),
     Pids = [spawn(fun () -> pull_single(Ch, Since, Self) end)
             || Ch <- Channels],
+    collect(Pids).
+
+collect(Pids) ->
+    Received = collect(Pids, [], infinity),
+    {Messages, Ts} = lists:foldl(fun (Acc, {ok, Ts, Messages}) -> 
+                                   {[Messages|Acc], Ts}  
+                           end, 
+                           {[], 0},
+                           Received),
+    {ok, Ts, Messages}.
+
+%% grabs messages from listened channels
+collect(Pids, Acc, Timeout) ->
     receive
-        {From, {ok, Ts, Messages}} ->
-            [exit(Pid, normal) || Pid <- Pids, Pid =/= From],
-            {ok, Ts, Messages};
-        {From, Err} -> Err
+        {From, Result={ok,_,_}} ->
+            [exit(Pid, kill) || Pid <- Pids, Pid =/= From],
+            collect([], [Result|Acc], 0);
+        Other -> error_logger:warning_msg(
+                   "~p receives ~p~n", 
+                   [?MODULE, Other])
+    after 
+        Timeout -> Acc
     end.
 
 pull_single(Channel, Since, Owner) ->

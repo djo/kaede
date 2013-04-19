@@ -40,7 +40,11 @@ define([
                 if (_.size(ids) <= 0)
                     self.run();
                 else{
-                    var url = "/chatmessage/pull/" + self.timestamp + _.reduce(ids, function(acc, it){return acc + "/" + it}, "");
+                    var url = "/chatmessage/pull/" 
+                        + self.timestamp 
+                        + _.reduce(ids, function(acc, it){
+                            return acc + "/" + it}, "");
+
                     self.activeRequest = $.ajax({
                         type: "GET",
                         url: url,
@@ -51,10 +55,7 @@ define([
                             self.run();
                         },
                         error: function (xhr) {
-                            if (xhr.statusText !== "abort") {
-                                self.activeRequest = undefined;
-                                self.run();
-                            }
+                            self.run();
                         }
                     });
                 }
@@ -79,6 +80,8 @@ define([
                             collection: new Backbone.Collection(fetchedModels) });
                         self.childMessages[topic_id] = newChatItemView;
                         self.render_chat(container, newChatItemView);
+                        if (self.activeRequest != undefined)
+                            self.activeRequest.abort()
                     });
                 }
                 else{
