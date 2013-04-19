@@ -14,8 +14,7 @@ define([
 	
 	initialize: function (args) {
 	    this.collection.on('add remove reset change', this.render, this);
-            
-	    },
+	},
         
         run: function(){
             var self = this;
@@ -58,14 +57,9 @@ define([
 		    self.collection.add(saved); },
 		 wait: true});
 	},
-        comparator: function(topic){
-            return comment.get("topic_id");
-        },
 
         openChat: function(topicItemView) {
-            this.chats.add(topicItemView.model);
-            console.log(this.chats);
-            console.log(topicItemView);
+            this.trigger('chat:open', topicItemView.model);
         }
         
     });

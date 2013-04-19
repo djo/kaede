@@ -4,37 +4,33 @@ define([
     'collections/chatList',
     'views/topic/topicList',
     'views/tag/tagList',
-    'views/chat/chatList'
+    'views/chat/chat'
 ], function (
     TopicCollection, 
     TagCollection, 
     ChatCollection, 
     TopicListView,
     TagListView,
-    ChatListView) {
+    Chat) {
     var KaedeApp = {
 	initialize: function () {
 	    var self = this;
 
-            var chats = self.init_collection(
-                ChatCollection, 
-                ChatListView, 
-                $('.chats'));
-
-            var topics = self.init_collection(
+            self.topics = self.init_collection(
                 TopicCollection, 
                 TopicListView, 
-                $('.topics'),
-                { chats: chats.collection });
+                $('.topics'));
 
-            var tags = self.init_collection(
+            self.tags = self.init_collection(
                 TagCollection, 
                 TagListView, 
                 $('.tags'));
 
-            topics.run();
-            tags.run();
-            chats.run();
+            self.chat = new Chat({el: $('.chats')});
+            self.topics.on('chat:open', self.openChat, self);
+
+            self.topics.run();
+            self.tags.run();
 
 	    return self;
 	},
@@ -48,6 +44,11 @@ define([
             var view = new View(params);
             $.extend(view, opt);
             return view;
+        },
+
+        openChat: function(topic) {
+            var self = this;
+            self.chat.set_topic(topic);
         }
     };
 
