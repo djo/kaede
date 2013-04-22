@@ -39,7 +39,7 @@ define([
             var collection = new Collection();
             var params = {
                 el: target, 
-		collection: collection };
+            collection: collection };
 
             var view = new View(params);
             $.extend(view, opt);
@@ -48,7 +48,7 @@ define([
 
         openChat: function(topic) {
             var self = this;
-            self.chat.set_topic(topic);
+            self.chat.setTopic(topic);
         }
     };
 

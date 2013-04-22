@@ -26,16 +26,10 @@ pull('GET', [Timestamp|TopicIds], Member) ->
     {ok, NewTs, Messages} = mq_listener:pull(Channels, Ts),
     {json, [{timestamp, NewTs}, {messages, Messages}]}.
 
-
 create('POST', [TopicId], Member) ->
     Text = Req:post_param("text"),
     Message = chatmessage:new(id, Text, TopicId, Member:id(), now()),
     case Message:save() of
-        {ok, Saved} ->
-            MQMessage = chatmessage_mq:build(Saved, Member),
-            ChannelName = chatmessage_mq:channel_name(TopicId),
-            boss_mq:push(ChannelName, MQMessage),
-            {json, [{message, Saved}]};
-        {error, Errors} ->
-            {json, [{errors, Errors}]}
+        {ok, Saved} -> {json, [{message, Saved}]};
+        {error, Errors} -> {json, [{errors, Errors}]}
     end.

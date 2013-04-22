@@ -1,9 +1,9 @@
 define([
-	'Backbone',
-	'models/topic'
+  'Backbone',
+  'models/topic'
 ], function (Backbone, Topic) {
-	var ChatList = Backbone.Collection.extend({
-		model: Topic,
-	});
-	return ChatList;
+  var ChatList = Backbone.Collection.extend({
+    model: Topic,
+  });
+  return ChatList;
 });

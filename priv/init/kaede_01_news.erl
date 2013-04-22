@@ -12,7 +12,7 @@ init() ->
                 MemberId = Message:member_id(),
                 [Member] = boss_db:find(member, [id, 'equals', MemberId]),
                 R = chatmessage_mq:build(Message, Member),
-                boss_mq:push("topic." ++ TopicId, R)
+                boss_mq:push(chatmessage_mq:channel_name(TopicId), R)
         end),
     {ok, [MsgWatchId]}.
 

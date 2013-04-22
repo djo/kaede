@@ -8,4 +8,4 @@ build(Message, Member) ->
      {topic_id, Message:topic_id()}].
 
 channel_name(TopicId) ->
-    "new-messages" ++ TopicId.
+    "topic." ++ TopicId.
