@@ -1,9 +1,14 @@
-.message-list {
-    height: 50ex;
-    overflow-y: scroll;
-    overflow-x: hidden;
+.chats {
+    margin-top: 28px;
 }
 
+.chats .messages {
+    margin-bottom: 7px;
+}
+
+.chats .messages .member {
+    color: #999;
+}
 
 .form-signin {
     max-width: 300px;
