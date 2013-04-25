@@ -9,10 +9,7 @@ init() ->
     {ok, MsgWatchId} = boss_news:watch("chatmessages",
         fun(created, Message) ->
                 TopicId = Message:topic_id(),
-                MemberId = Message:member_id(),
-                [Member] = boss_db:find(member, [id, 'equals', MemberId]),
-                R = chatmessage_mq:build(Message, Member),
-                boss_mq:push(chatmessage_mq:channel_name(TopicId), R)
+                boss_mq:push(chatmessage_mq:channel_name(TopicId), Message)
         end),
     {ok, [MsgWatchId]}.
 

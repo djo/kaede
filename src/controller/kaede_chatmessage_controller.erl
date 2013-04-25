@@ -7,23 +7,17 @@ before_(_, _, _) ->
         {ok, Member} -> {ok, Member}
     end.
 
-index('GET', [TopicId], Member) ->
-    Messages = boss_db:find(chatmessage, [{topic_id, 'equals', TopicId}]),
-    MQMessages = lists:map(fun(Message) -> chatmessage_mq:build(Message, Member) end, Messages),
-    ChannelName = chatmessage_mq:channel_name(TopicId),
-    Timestamp = boss_mq:now(ChannelName),
-    {json, [{messages, MQMessages}, {timestamp, Timestamp}]}.
+index('GET', [TopicId], _Member) ->
+    {ok, Timestamp, Messages} = kaede_message:list(chat, TopicId),
+    {json, [{messages, Messages}, {timestamp, Timestamp}]}.
 
-poll('GET', [TopicId, Timestamp], Member) ->
-    ChannelName = chatmessage_mq:channel_name(TopicId),
-    {ok, NewTimestamp, Messages} = boss_mq:pull(ChannelName,
-        list_to_integer(Timestamp)),
-    {json, [{timestamp, NewTimestamp}, {messages, Messages}]}.
+poll('GET', [TopicId, Ts], _Member) ->
+    {ok, Timestamp, Messages} = kaede_message:pull(chat, TopicId, Ts),
+    {json, [{timestamp, Timestamp}, {messages, Messages}]}.
 
 create('POST', [TopicId], Member) ->
     Text = Req:post_param("text"),
-    Message = chatmessage:new(id, Text, TopicId, Member:id(), now()),
-    case Message:save() of
+    case kaede_message:add(chat, Text, TopicId, Member:id()) of
         {ok, Saved} -> {json, [{message, Saved}]};
         {error, Errors} -> {json, [{errors, Errors}]}
     end.
