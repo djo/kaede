@@ -14,6 +14,12 @@ define([
 	
 	initialize: function (args) {
 	    this.collection.on('add remove reset change', this.render, this);
+
+            var self = this;
+            self.$el.empty();
+	    var compiledTemplate = _.template(TopicListTemplate, {});
+	    self.$el.html(compiledTemplate);
+            self.topicTextInput = self.$('.topic-text');
 	},
         
         run: function(){
@@ -27,13 +33,8 @@ define([
        
 	render: function () {
 	    var self = this;
-	    self.$el.empty();
-	    
-	    var compiledTemplate = _.template(TopicListTemplate, {});
-	    self.$el.html(compiledTemplate);
-	    self.topicTextInput = self.$('.topic-text');
-            
 	    var container = self.$('.topic-list');
+            container.empty();
             
 	    self.collection.each(function (topic, index) {
 		var topicListItemView = new TopicListItemView({ model: topic });
