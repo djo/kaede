@@ -2,8 +2,9 @@ define([
   'Backbone',
   'text!templates/chat/chat.html',
   'text!templates/chat/message.html',
+  'text!templates/chat/member.html',
   'views/topic/topicListItem'
-], function (Backbone, ChatTemplate, MessageTemplate, TopicListItemView) {
+], function (Backbone, ChatTemplate, MessageTemplate, MemberTemplate, TopicListItemView) {
   var Chat = Backbone.View.extend({
     tagName: 'div',
     className: 'chat',
@@ -15,7 +16,8 @@ define([
     messages: [],
 
     events: {
-      'click .add-message': 'createMessage'
+      'click .add-message': 'createMessage',
+      'keypress .message-text': 'processKeypress'
     },
 
     fetch: function(fn_continue) {
@@ -31,10 +33,15 @@ define([
     setTopic: function(topic) {
       var self = this;
       self.stop();
-      //self.$el.empty();
       self.messages = [];
       self.topic_id = topic.get("topic_id");
       self.model = topic;
+       
+      var headTemplate = _.template(ChatTemplate, self.model.toJSON());
+
+      self.$el.html(headTemplate);
+      self.messageTextInput = self.$('.message-text');
+      
       self.run();
     },
 
@@ -51,7 +58,6 @@ define([
       var self = this;
       self.fetch(function(messages){
         self.addMessages(messages);
-        self.render();        
         self.poll();
       });
     },
@@ -84,16 +90,21 @@ define([
 
     render: function () {
       var self = this;
-      var headTemplate = _.template(ChatTemplate, self.model.toJSON());
-
-      self.$el.html(headTemplate);
-      self.messageTextInput = self.$('.message-text');
 
       var msg_container = self.$('.messages');
-      _.each(self.messages, function (message) {
-        var msgTemplate = _.template(MessageTemplate, message);
-        msg_container.append(msgTemplate);
-      });
+      msg_container.empty();
+      _.reduce(
+        self.messages, 
+        function (prev_user, message) {
+          if (prev_user != message.member_id){
+            var memTemplate = _.template(MemberTemplate, message);
+            msg_container.append(memTemplate);
+          }
+          var msgTemplate = _.template(MessageTemplate, message);
+          msg_container.append(msgTemplate);
+          return message.member_id;
+        },
+        null);
 
       return self;
     },
@@ -118,7 +129,12 @@ define([
       }).error(function (jqXHR) {
         alert("Errors: " + jqXHR.responseText)
       })
-    }
+    },
+    
+    processKeypress: function(evt) {
+        if (evt.keyCode != 13) return;
+        this.createMessage();
+      }
   });
 
   return Chat;

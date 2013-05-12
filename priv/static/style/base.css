@@ -1,13 +1,33 @@
+.topics .topic-list .topic-item .topic-head {
+    font-weight: bold;
+}
+
+.topics .topic-list .topic-item .topic-body {
+    overflow:hidden;
+}
+
+.topics .topic-list .topic-item .user-av {
+    margin-left: -30px;
+    margin-right: 1em;
+    width: 48px;
+    height: 48px;
+}
+
+
 .chats {
     margin-top: 28px;
 }
 
 .chats .messages {
-    margin-bottom: 7px;
+    margin-bottom: 2ex;
 }
 
 .chats .messages .member {
-    color: #999;
+    font-weight: bold;
+}
+
+.chats .messages .message {
+    margin-left: 1em;
 }
 
 .form-signin {

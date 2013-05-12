@@ -8,9 +8,10 @@ define([
 	tagName: 'div',
         
 	events: {
-	    'click .add-topic': 'createTopic'
+	    'click .add-topic': 'createTopic',
+		'keypress .topic-text': 'processKeypress'
 	},
-        pollingInterval: 5,
+        pollingInterval: 50,
 	
 	initialize: function (args) {
 	    this.collection.on('add remove reset change', this.render, this);
@@ -50,18 +51,25 @@ define([
 	},
 	
 	createTopic: function(){
-	    var self = this;
-	    var topic = new Topic();
-	    topic.save(
-		{topic_text: self.topicTextInput.val()},
-		{success: function(saved){ 
-		    self.collection.add(saved); },
-		 wait: true});
+		var self = this;
+		var topic = new Topic();
+		topic.save(
+			{topic_text: self.topicTextInput.val()},
+			{success: function(saved){ 
+				self.collection.add(saved);
+				self.topicTextInput.val(''); },
+			wait: true});
+		
 	},
 
-        openChat: function(topicItemView) {
-            this.trigger('chat:open', topicItemView.model);
-        }
+	openChat: function(topicItemView) {
+		this.trigger('chat:open', topicItemView.model);
+	},
+	
+	processKeypress: function(evt) {
+		if (evt.keyCode != 13) return;
+		this.createTopic();
+	}
         
     });
     return TopicListView;

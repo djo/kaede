@@ -4,10 +4,10 @@ define([
 ], function (Backbone, TopicListItemTemplate) {
   var TopicListItemView = Backbone.View.extend({
     tagName: 'div',
-    className: 'topic-item',
+    className: 'topic-item well well-small',
 
     events: {
-      'click h4 a': 'openChat'
+      'click': 'openChat'
     },
 
     render: function () {
