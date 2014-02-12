@@ -7,17 +7,10 @@
 -module(db_defaults).
 -compile(export_all).
 
-tag() ->
-    TagNames = ["общение",
-		"события",
-		"авто",
-		"бизнес",
-		"любовь",
-		"личное"],
-    lists:map(fun (Text) -> tag:new(id, utf8_decode(Text)) end, 
-	      TagNames).
+member() ->
+    Hash = member_lib:hash_for("john@email.com", "password"),
+    [member:new(id, "john@email.com", "John", Hash)].
 
-utf8_decode(Text) ->
-    binary:bin_to_list(
-      unicode:characters_to_binary(
-	Text)).
+tag() ->
+    TagNames = ["me", "weather", "cats", "work", "justsaying"],
+    lists:map(fun (Text) -> tag:new(id, Text) end, TagNames).

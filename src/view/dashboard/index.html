@@ -1,18 +1,12 @@
 {% extends "layout.html" %}
-
-{% block head %}
-Hi, {{member.name}}
-{% endblock %}
-
+{% block head %}Hi, {{member.name}}{% endblock %}
 {% block content %}
-
 <div class="row">
   <div class="span12">
     <div class="tags">
     </div>
   </div>
 </div>
-
 <div class="row">
   <div class="span4">
     <h2>Topics</h2>
@@ -22,13 +16,5 @@ Hi, {{member.name}}
     <div class="chats"></div>
   </div>
 </div>
-
-    
-
-<script 
-  data-main="/static/script/pages/dashboard.js" 
-  src="/static/script/lib/require/require-2.0.2-jquery-1.7.2.js" 
-  type="text/javascript"></script>
-
+<script data-main="/static/script/pages/dashboard.js" src="/static/script/lib/require/require-2.0.2-jquery-1.7.2.js" type="text/javascript"></script>
 {% endblock %}
-

@@ -2,10 +2,8 @@
 -export([root_cookie/2,session_id/1,add_member/4, require_login/1, hash_for/2]).
 -define(SECRET_STRING, "Secret string").
 
-
 hash_password(Password, Salt) ->
     mochihex:to_hex(erlang:md5(Salt ++ Password)).
-
 
 hash_for(Login, Password) ->
     Salt = mochihex:to_hex(erlang:md5(Login)),
@@ -15,10 +13,8 @@ hash_for(Login, Password) ->
 root_cookie(N, V) ->
     mochiweb_cookies:cookie(N, V, [{path, "/"}]).
 
-
 session_id(Id) ->
     mochihex:to_hex(erlang:md5(?SECRET_STRING ++ Id)).
-
 
 add_member(Name, Email, Password, Password2) ->
     case boss_db:find(member, [{email, 'equals', Email}]) of
@@ -35,7 +31,6 @@ add_member(Name, Email, Password, Password2) ->
 	    end;
 	_ -> {error, ["User already exists"]}
     end.
-
 
 require_login(Req) ->
     case Req:cookie("user_id") of
