@@ -5,32 +5,23 @@
 -define(with_topic(TopicId), {topic_id, 'equals', TopicId}).
 -define(where_date(Op, Origin), {time_stamp, Op, Origin}).
 
-%% kaede_message:add/4
-%% adds new message
 add(chat, Text, TopicId, MemberId) ->
     Parts = kaede_tag:extract_parts(Text),
     _Tags = proplists:get_value(tags, Parts),
     Result = boss_db:transaction(
-	       fun () ->
-		       Msg = chatmessage:new(id, Text, TopicId, MemberId, now()),
-		       %% TODO: add links to tags, notify
-		       %% TODO: add links to users, notify
-		       Msg:save()
-	       end),
+        fun () ->
+            Msg = chatmessage:new(id, Text, TopicId, MemberId, now()),
+            Msg:save()
+        end),
     case Result of
-	{atomic, {ok, Saved}} -> 
-	    {ok, Saved};
-	_ -> 
-	    {error, Result}
+        {atomic, {ok, Saved}} -> {ok, Saved};
+        _ -> {error, Result}
     end.
-	     
+
 list(chat, TopicId) ->
     Channel = chatmessage_mq:channel_name(TopicId),
     Ts = boss_mq:now(Channel),
-    Messages = boss_db:find(
-		 chatmessage, 
-		 [?with_topic(TopicId)],
-		 [?default_sort_order]),
+    Messages = boss_db:find(chatmessage, [?with_topic(TopicId)], [?default_sort_order]),
     {ok, Ts, lists:map(fun map_message/1, Messages)}.
 
 pull(chat, TopicId, From) ->

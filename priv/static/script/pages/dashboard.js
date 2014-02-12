@@ -1,8 +1,7 @@
 requirejs.config(RequireConfig.getConfig());
-
 requirejs([
-    'kaedeApp',
-    'bootstrap'
+  'kaedeApp',
+  'bootstrap'
 ], function (KaedeApp) {
-    KaedeApp.initialize();
+  KaedeApp.initialize();
 });

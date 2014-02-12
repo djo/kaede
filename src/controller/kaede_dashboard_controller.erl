@@ -3,10 +3,9 @@
 
 before_(_, _, _) ->
     case member_lib:require_login(Req) of
-        fail -> {redirect, "/member/login"};
-        {ok, Member} -> {ok, Member}
+        {ok, Member} -> {ok, Member};
+        fail -> {redirect, "/member/login"}
     end.
 
 index('GET', [], Member) ->
     {ok, [{member, Member}]}.
-

@@ -21,6 +21,4 @@ show('GET', [Id], Member) ->
 map_tag(Tag) ->
     Id = Tag:id(),
     Text = Tag:text(),
-    [{tag, 
-      [{id, Id}, 
-       {text, Text}]}].
+    [{tag, [{id, Id}, {text, Text}]}].

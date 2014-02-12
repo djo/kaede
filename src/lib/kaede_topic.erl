@@ -7,20 +7,16 @@
 
 add(Text, MemberId) ->
     Result = boss_db:transaction(
-	       fun () ->
-                       Topic = topic:new(id, Text, MemberId),
-                       {ok, Saved} = Topic:save(),
-                       
-                       Parts = kaede_tag:extract_parts(Text),
-                       Tags = proplists:get_value(tags, Parts),
-                       [kaede_tag:link(Saved:id(), Tag) || Tag <- Tags],
-                       {ok, map_topic(Saved)}
-               end),
+        fun () ->
+            Topic = topic:new(id, Text, MemberId),
+            {ok, Saved} = Topic:save(),
+            Parts = kaede_tag:extract_parts(Text),
+            Tags = proplists:get_value(tags, Parts),
+            [kaede_tag:link(Saved:id(), Tag) || Tag <- Tags], {ok, map_topic(Saved)}
+        end),
     case Result of
-	{atomic, {ok, Saved}} -> 
-	    {ok, Saved};
-	_ -> 
-	    {error, Result}
+        {atomic, {ok, Saved}} -> {ok, Saved};
+        _ -> {error, Result}
     end.
 
 list() ->
@@ -35,7 +31,4 @@ list(TagId) ->
 
 map_topic(Topic) ->
     [Member] = boss_db:find(member, [id, 'equals', Topic:member_id()]),
-    [{topic, 
-      [{topic_id, Topic:id()},
-       {topic_text, Topic:topic_text()},
-       {member_name, Member:name()}]}].
+    [{topic, [{topic_id, Topic:id()}, {topic_text, Topic:topic_text()}, {member_name, Member:name()}]}].

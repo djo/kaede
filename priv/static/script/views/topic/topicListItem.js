@@ -1,6 +1,6 @@
 define([
-    'Backbone',
-    'text!templates/topic/topicListItem.html'
+  'Backbone',
+  'text!templates/topic/topicListItem.html'
 ], function (Backbone, TopicListItemTemplate) {
   var TopicListItemView = Backbone.View.extend({
     tagName: 'div',
