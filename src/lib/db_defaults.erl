@@ -8,7 +8,7 @@
 -compile(export_all).
 
 member() ->
-    Hash = member_lib:hash_for("john@email.com", "password"),
+    Hash = kaede_auth:hash_for("john@email.com", "password"),
     [member:new(id, "john@email.com", "John", Hash)].
 
 tag() ->

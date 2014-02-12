@@ -8,7 +8,7 @@ register('POST', []) ->
     Name = Req:post_param("name"),
     Password = Req:post_param("password1"),
     Password2 = Req:post_param("password2"),
-    case member_lib:add_member(Name, Email, Password, Password2) of
+    case kaede_member:create(Name, Email, Password, Password2) of
         {ok, Member} ->
             login_and_redirect(Member);
         {error, Errors} ->
@@ -22,7 +22,7 @@ register('POST', []) ->
 logout('GET', []) ->
     case Req:cookie("_boss_session") of
         SessionID ->
-            Cookies = [member_lib:root_cookie("user_id", ""), member_lib:root_cookie("session_id", "")],
+            Cookies = [kaede_auth:root_cookie("user_id", ""), kaede_auth:root_cookie("session_id", "")],
             {redirect, "/", Cookies};
         _ ->
             {redirect, "/"}

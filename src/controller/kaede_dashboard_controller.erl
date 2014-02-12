@@ -2,7 +2,7 @@
 -export([before_/3, index/3]).
 
 before_(_, _, _) ->
-    case member_lib:require_login(Req) of
+    case kaede_auth:require_login(Req) of
         {ok, Member} -> {ok, Member};
         fail -> {redirect, "/member/login"}
     end.

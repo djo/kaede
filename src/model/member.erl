@@ -7,13 +7,13 @@ validation_tests() ->
      {fun () -> length(Name) > 0 end, "Name is required"}].
 
 check_password(Password) ->
-    ComputedHash = member_lib:hash_for(Email, Password),
+    ComputedHash = kaede_auth:hash_for(Email, Password),
     PasswordHash =:= ComputedHash.
 
 login_cookies() ->
-    UserId = member_lib:root_cookie("user_id", Id),
-    SessionId = member_lib:root_cookie("session_id", member_lib:session_id(Id)),
+    UserId = kaede_auth:root_cookie("user_id", Id),
+    SessionId = kaede_auth:root_cookie("session_id", kaede_auth:session_id(Id)),
     [UserId, SessionId].
 
 session_id() ->
-    member_lib:session_id(Id).
+    kaede_auth:session_id(Id).
